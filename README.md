@@ -6,10 +6,10 @@
 
   - [Description](#description)
   - [MoSCoW prioritized requirements](#moscow-prioritized-requirements)
-    - [Must have](#must-have)
-    - [Should have](#should-have)
-    - [Could have](#could-have)
-    - [Won't have](#wont-have) 
+    - [**Must have :**](#must-have-)
+    - [**Should have :**](#should-have-)
+    - [**Could have :**](#could-have-)
+    - [**Won't have :**](#wont-have-)
 
 ## Description
 
