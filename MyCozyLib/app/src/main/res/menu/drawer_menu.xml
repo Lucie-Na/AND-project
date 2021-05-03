@@ -7,29 +7,29 @@
         <item
             android:id="@+id/nav_library"
             android:icon="@drawable/ic_library_24"
-            android:title="My Library" />
+            android:title="@string/nav_library" />
         <item
             android:id="@+id/nav_wish_list"
             android:icon="@drawable/ic_wish_24"
-            android:title="Wish List" />
+            android:title="@string/nav_wish_list" />
         <item
             android:id="@+id/nav_recommendations"
             android:icon="@drawable/ic_recommend_24"
-            android:title="Recommendations" />
+            android:title="@string/nav_recommendations" />
     </group>
 
 
-    <item android:title="Social">
+    <item android:title="@string/nav_title_social">
         <menu>
             <group android:checkableBehavior="single">
                 <item
                     android:id="@+id/nav_friends"
                     android:icon="@drawable/ic_friends_24"
-                    android:title="Friends" />
+                    android:title="@string/nav_friends" />
                 <item
                     android:id="@+id/nav_posts"
                     android:icon="@drawable/ic_post_24"
-                    android:title="Posts" />
+                    android:title="@string/nav_posts" />
             </group>
         </menu>
     </item>
@@ -38,6 +38,6 @@
     <item
         android:id="@+id/nav_settings"
         android:icon="@drawable/ic_settings_24"
-        android:title="Settings" />
+        android:title="@string/nav_settings" />
 
 </menu>
