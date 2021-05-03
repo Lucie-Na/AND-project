@@ -15,4 +15,20 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
+    <string name="welcome_message">Welcome to @string/app_name !</string>
+    <string name="sign_in_message">Sign In</string>
+
+    <string name="field_mail">Email</string>
+    <string name="field_pseudo">Pseudo</string>
+    <string name="field_password">Password</string>
+    <string name="field_confirm_password">Confirm Password</string>
+    <string name="field_mail_or_pseudo">Email or Pseudo</string>
+
+
+    <string name="submit">Submit</string>
+    <string name="text_no_account">You don\'t have an account ? </string>
+    <string name="link_no_account">Click here to register !</string>
+    <string name="text_already_an_account">You already have an account ? </string>
+    <string name="link_already_an_account">Click here connect !</string>
+
 </resources>
