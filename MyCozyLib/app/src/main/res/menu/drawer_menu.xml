@@ -16,6 +16,10 @@
             android:id="@+id/nav_recommendations"
             android:icon="@drawable/ic_recommend_24"
             android:title="@string/nav_recommendations" />
+        <item
+            android:id="@+id/nav_research"
+            android:icon="@drawable/ic_search_24"
+            android:title="@string/nav_research" />
     </group>
 
 
@@ -34,10 +38,10 @@
         </menu>
     </item>
 
-
-    <item
-        android:id="@+id/nav_settings"
-        android:icon="@drawable/ic_settings_24"
-        android:title="@string/nav_settings" />
-
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_settings"
+            android:icon="@drawable/ic_settings_24"
+            android:title="@string/nav_settings" />
+    </group>
 </menu>

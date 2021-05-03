@@ -72,6 +72,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_recommendations:
                 selectedFragment = new RecommendationFragment();
                 break;
+            case R.id.nav_research:
+                selectedFragment = new ResearchFragment();
+                break;
             case R.id.nav_friends:
                 selectedFragment = new FriendFragment();
                 break;
