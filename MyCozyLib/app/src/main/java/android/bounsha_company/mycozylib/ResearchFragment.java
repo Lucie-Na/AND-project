@@ -79,6 +79,7 @@ public class ResearchFragment extends Fragment
                 for (int i = 0; i < itemsArray.length(); i++) {
                     JSONObject itemsObj = itemsArray.getJSONObject(i);
                     JSONObject volumeObj = itemsObj.getJSONObject("volumeInfo");
+
                     String title = volumeObj.optString("title");
                     String subtitle = volumeObj.optString("subtitle");
                     String publisher = volumeObj.optString("publisher");

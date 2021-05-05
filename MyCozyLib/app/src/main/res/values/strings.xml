@@ -42,6 +42,7 @@
 
     <!-- For the book informations -->
     <string name="text_book_title">Book Title</string>
+    <string name="text_book_subtitle">Book Subtitle</string>
     <string name="text_book_editor">Editor</string>
     <string name="text_book_page_count">Number of pages</string>
     <string name="text_published_date">Published date</string>

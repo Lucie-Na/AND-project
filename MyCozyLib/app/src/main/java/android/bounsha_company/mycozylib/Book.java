@@ -4,20 +4,23 @@ import java.util.ArrayList;
 
 public class Book
 {
+    private int picture;
     private String title;
     private String subtitle;
     private ArrayList<String> authors;
     private String editor;
     private String publishedDate;
-    private String description;
     private int pageCount;
-    private String thumbnail;
+
+    private String description;
+
+    /*
     private String previewLink;
-    private String infoLink;
+    private String infoLink;*/
 
     // constructor
     public Book(String title, String subtitle, ArrayList<String> authors, String editor,
-                String publishedDate, String description, int pageCount, String thumbnail,
+                String publishedDate, String description, int pageCount, int picture,
                 String previewLink, String infoLink)
     {
         this.title = title;
@@ -27,9 +30,9 @@ public class Book
         this.publishedDate = publishedDate;
         this.description = description;
         this.pageCount = pageCount;
-        this.thumbnail = thumbnail;
-        this.previewLink = previewLink;
-        this.infoLink = infoLink;
+        this.picture = picture;
+       /* this.previewLink = previewLink;
+        this.infoLink = infoLink;*/
     }
 
     // get and set methods
@@ -89,14 +92,14 @@ public class Book
         this.pageCount = pageCount;
     }
 
-    public String getThumbnail() {
-        return thumbnail;
+    public int getCoverID() {
+        return picture;
     }
 
-    public void setThumbnail(String thumbnail) {
-        this.thumbnail = thumbnail;
+    public void setCoverID(int coverID) {
+        this.picture = coverID;
     }
-
+/*
     public String getPreviewLink() {
         return previewLink;
     }
@@ -112,5 +115,5 @@ public class Book
     public void setInfoLink(String infoLink) {
         this.infoLink = infoLink;
     }
-
+*/
 }

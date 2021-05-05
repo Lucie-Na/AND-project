@@ -28,18 +28,20 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     }
 
     public static class BookViewHolder extends RecyclerView.ViewHolder {
-        // below line is use to initialize
-        // our text view and image views.
-        TextView nameTV, editorTV, pageCountTV, dateTV;
-        ImageView bookIV;
+
+        TextView bookName;
+        TextView bookEditor;
+        TextView bookPageCount;
+        TextView bookPublishedDate;
+        ImageView bookPicture;
 
         public BookViewHolder(View itemView) {
             super(itemView);
-            nameTV = itemView.findViewById(R.id.text_book_title);
-            editorTV = itemView.findViewById(R.id.text_book_editor);
-            pageCountTV = itemView.findViewById(R.id.text_book_page_count);
-            dateTV = itemView.findViewById(R.id.text_published_date);
-            bookIV = itemView.findViewById(R.id.img_book_cover);
+            bookName = itemView.findViewById(R.id.text_book_title);
+            bookEditor = itemView.findViewById(R.id.text_book_editor);
+            bookPageCount = itemView.findViewById(R.id.text_book_page_count);
+            bookPublishedDate = itemView.findViewById(R.id.text_published_date);
+            bookPicture = itemView.findViewById(R.id.img_book_cover);
         }
     }
 
@@ -55,14 +57,14 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
     public void onBindViewHolder(@NonNull BookAdapter.BookViewHolder holder, int position)
     {
         Book book = bookArrayList.get(position);
-        holder.nameTV.setText(book.getTitle());
+        holder.bookName.setText(book.getTitle());
 
-        holder.editorTV.setText(book.getEditor());
-        holder.pageCountTV.setText("No of Pages : " + book.getPageCount());
-        holder.dateTV.setText(book.getPublishedDate());
+        holder.bookEditor.setText(book.getEditor());
+        holder.bookPageCount.setText("No of Pages : " + book.getPageCount());
+        holder.bookPublishedDate.setText(book.getPublishedDate());
 
         // below line is use to set image from URL in our image view.
-        Picasso.get().load(book.getThumbnail()).into(holder.bookIV);
+        Picasso.get().load(book.getThumbnail()).into(holder.bookPicture);
 
         // on click listener on holder
         holder.itemView.setOnClickListener(v -> {
