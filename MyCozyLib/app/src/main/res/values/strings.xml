@@ -45,6 +45,9 @@
     <string name="text_book_subtitle">Book Subtitle</string>
     <string name="text_book_editor">Editor</string>
     <string name="text_book_page_count">Number of pages</string>
-    <string name="text_published_date">Published date</string>
+    <string name="text_book_published_date">Published date</string>
+    <string name="text_book_synopsis">Synopsis</string>
+    <string name="text_library_add">Add this book to my Library</string>
+    <string name="text_wish_list_add">Add this book to my Wish List</string>
 
 </resources>

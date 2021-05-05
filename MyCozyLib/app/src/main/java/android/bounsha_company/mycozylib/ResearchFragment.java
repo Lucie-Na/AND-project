@@ -51,7 +51,9 @@ public class ResearchFragment extends Fragment
 
             // checking if our edittext field is empty or not.
             if (researchInputText.getText().toString().isEmpty()) {
-                researchInputText.setError("Please enter search query");
+                progressBar.setVisibility(View.GONE);
+                researchInputText.setError("Please enter your research in the text field");
+
                 return;
             }
             // if the search query is not empty then we are
@@ -87,7 +89,7 @@ public class ResearchFragment extends Fragment
                     String description = volumeObj.optString("description");
                     int pageCount = volumeObj.optInt("pageCount");
                     JSONObject imageLinks = volumeObj.optJSONObject("imageLinks");
-                    assert imageLinks != null;
+                    //assert imageLinks != null;
                     String thumbnail = imageLinks.optString("thumbnail");
                     String previewLink = volumeObj.optString("previewLink");
                     String infoLink = volumeObj.optString("infoLink");
@@ -114,7 +116,8 @@ public class ResearchFragment extends Fragment
                     mRecyclerView.setLayoutManager(linearLayoutManager);
                     mRecyclerView.setAdapter(adapter);
                 }
-            } catch (JSONException e) {
+            } catch (JSONException e)
+            {
                 e.printStackTrace();
                 // displaying a toast message when we get any error from API
                 Toast.makeText(getContext(), "No Data Found" + e, Toast.LENGTH_LONG).show();
@@ -123,6 +126,5 @@ public class ResearchFragment extends Fragment
         // at last we are adding our json object
         // request in our request queue.
         queue.add(booksJsonRequest);
-
     }
 }

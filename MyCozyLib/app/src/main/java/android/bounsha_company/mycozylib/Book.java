@@ -4,7 +4,7 @@ import java.util.ArrayList;
 
 public class Book
 {
-    private int picture;
+    private String picture;
     private String title;
     private String subtitle;
     private ArrayList<String> authors;
@@ -14,13 +14,13 @@ public class Book
 
     private String description;
 
-    /*
+
     private String previewLink;
-    private String infoLink;*/
+    private String infoLink;
 
     // constructor
     public Book(String title, String subtitle, ArrayList<String> authors, String editor,
-                String publishedDate, String description, int pageCount, int picture,
+                String publishedDate, String description, int pageCount, String picture,
                 String previewLink, String infoLink)
     {
         this.title = title;
@@ -31,8 +31,8 @@ public class Book
         this.description = description;
         this.pageCount = pageCount;
         this.picture = picture;
-       /* this.previewLink = previewLink;
-        this.infoLink = infoLink;*/
+        this.previewLink = previewLink;
+        this.infoLink = infoLink;
     }
 
     // get and set methods
@@ -92,14 +92,14 @@ public class Book
         this.pageCount = pageCount;
     }
 
-    public int getCoverID() {
+    public String getCoverPicture() {
         return picture;
     }
 
-    public void setCoverID(int coverID) {
-        this.picture = coverID;
+    public void setCoverPicture(String picture) {
+        this.picture = picture;
     }
-/*
+
     public String getPreviewLink() {
         return previewLink;
     }
@@ -115,5 +115,5 @@ public class Book
     public void setInfoLink(String infoLink) {
         this.infoLink = infoLink;
     }
-*/
+
 }

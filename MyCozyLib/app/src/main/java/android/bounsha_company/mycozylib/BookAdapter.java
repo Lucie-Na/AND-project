@@ -1,7 +1,6 @@
 package android.bounsha_company.mycozylib;
 
 import android.content.Context;
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,13 +8,16 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder> {
+
+public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder>{
 
     private final ArrayList<Book> bookArrayList;
     private final Context context;
@@ -40,7 +42,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             bookName = itemView.findViewById(R.id.text_book_title);
             bookEditor = itemView.findViewById(R.id.text_book_editor);
             bookPageCount = itemView.findViewById(R.id.text_book_page_count);
-            bookPublishedDate = itemView.findViewById(R.id.text_published_date);
+            bookPublishedDate = itemView.findViewById(R.id.text_book_published_date);
             bookPicture = itemView.findViewById(R.id.img_book_cover);
         }
     }
@@ -64,13 +66,13 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.bookPublishedDate.setText(book.getPublishedDate());
 
         // below line is use to set image from URL in our image view.
-        Picasso.get().load(book.getThumbnail()).into(holder.bookPicture);
+        Picasso.get().load(book.getCoverPicture()).into(holder.bookPicture);
 
         // on click listener on holder
         holder.itemView.setOnClickListener(v -> {
             // inside on click listener method we are calling a new activity
             // and passing all the data of that item in next intent.
-            Intent i = new Intent(context, Book.class);
+            /*Intent i = new Intent(context, Book.class);
             i.putExtra("title", book.getTitle());
             i.putExtra("subtitle", book.getSubtitle());
             i.putExtra("authors", book.getAuthors());
@@ -78,13 +80,16 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
             i.putExtra("publishedDate", book.getPublishedDate());
             i.putExtra("description", book.getDescription());
             i.putExtra("pageCount", book.getPageCount());
-            i.putExtra("thumbnail", book.getThumbnail());
+            i.putExtra("thumbnail", book.getCoverPicture());
             i.putExtra("previewLink", book.getPreviewLink());
             i.putExtra("infoLink", book.getInfoLink());
 
             // after passing that data we are
             // starting our new  intent.
-            context.startActivity(i);
+            context.startActivity(i);*/
+            AppCompatActivity activity = (AppCompatActivity) v.getContext();
+            Fragment fragment = new BookDetailsFragment();
+            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container, fragment).commit();
         });
     }
 
