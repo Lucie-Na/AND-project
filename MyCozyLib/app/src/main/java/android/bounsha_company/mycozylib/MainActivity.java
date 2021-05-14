@@ -9,6 +9,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Toast;
 
@@ -88,6 +89,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container, selectedFragment).commit();
 
         drawer.closeDrawer(GravityCompat.START);
+        return true;
+    }
+
+    //inflate the toolbar
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu)
+    {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.toolbar_menu, menu);
         return true;
     }
 

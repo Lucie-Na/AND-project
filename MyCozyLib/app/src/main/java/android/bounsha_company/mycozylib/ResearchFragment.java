@@ -28,6 +28,8 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.Objects;
 
+import android.bounsha_company.mycozylib.models.Book;
+
 public class ResearchFragment extends Fragment
 {
     private ArrayList<Book> bookArrayList;
@@ -94,9 +96,14 @@ public class ResearchFragment extends Fragment
                     String previewLink = volumeObj.optString("previewLink");
                     String infoLink = volumeObj.optString("infoLink");
                     ArrayList<String> authorsArrayList = new ArrayList<>();
+                    String stringAuthors = "";
+                    for (String author : authorsArrayList)
+                    {
+                        stringAuthors += author + ", ";
+                    }
                     // after extracting all the data we are
                     // saving this data in our modal class.
-                    Book book = new Book(title, subtitle, authorsArrayList, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink);
+                    Book book = new Book(title, subtitle, stringAuthors, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink);
 
                     // below line is use to pass our modal
                     // class in our array list.

@@ -1,26 +1,44 @@
-package android.bounsha_company.mycozylib;
+package android.bounsha_company.mycozylib.models;
+
+import androidx.annotation.NonNull;
+import androidx.room.ColumnInfo;
+import androidx.room.Entity;
+import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
 
+@Entity(tableName = "book")
 public class Book
 {
-    private String picture;
+    @PrimaryKey(autoGenerate = true)
+    @NonNull
+    @ColumnInfo(name = "ID")
+    int localID;
+    @NonNull
+    @ColumnInfo(name = "title")
     private String title;
+    @ColumnInfo(name = "subtitle")
     private String subtitle;
-    private ArrayList<String> authors;
+    @NonNull
+    @ColumnInfo(name = "authors")
+    private String authors;
+    @ColumnInfo(name = "editor")
     private String editor;
+    @ColumnInfo(name = "published_date")
     private String publishedDate;
+    @ColumnInfo(name = "number_of_pages")
     private int pageCount;
-
+    @ColumnInfo(name = "image")
+    private String image;
+    @ColumnInfo(name = "description")
     private String description;
-
 
     private String previewLink;
     private String infoLink;
 
     // constructor
-    public Book(String title, String subtitle, ArrayList<String> authors, String editor,
-                String publishedDate, String description, int pageCount, String picture,
+    public Book(@NonNull String title, String subtitle, @NonNull String authors, String editor,
+                String publishedDate, String description, int pageCount, String image,
                 String previewLink, String infoLink)
     {
         this.title = title;
@@ -30,12 +48,16 @@ public class Book
         this.publishedDate = publishedDate;
         this.description = description;
         this.pageCount = pageCount;
-        this.picture = picture;
+        this.image = image;
         this.previewLink = previewLink;
         this.infoLink = infoLink;
     }
 
     // get and set methods
+    public int getLocalID() { return localID; }
+
+    public void setLocalID(int localID) { this.localID = localID; }
+
     public String getTitle() {
         return title;
     }
@@ -52,11 +74,11 @@ public class Book
         this.subtitle = subtitle;
     }
 
-    public ArrayList<String> getAuthors() {
+    public String getAuthors() {
         return authors;
     }
 
-    public void setAuthors(ArrayList<String> authors) {
+    public void setAuthors(String authors) {
         this.authors = authors;
     }
 
@@ -92,12 +114,12 @@ public class Book
         this.pageCount = pageCount;
     }
 
-    public String getCoverPicture() {
-        return picture;
+    public String getImage() {
+        return image;
     }
 
-    public void setCoverPicture(String picture) {
-        this.picture = picture;
+    public void setCoverPicture(String image) {
+        this.image = image;
     }
 
     public String getPreviewLink() {

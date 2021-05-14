@@ -16,6 +16,8 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
+import android.bounsha_company.mycozylib.models.Book;
+
 
 public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder>{
 
@@ -66,7 +68,7 @@ public class BookAdapter extends RecyclerView.Adapter<BookAdapter.BookViewHolder
         holder.bookPublishedDate.setText(book.getPublishedDate());
 
         // below line is use to set image from URL in our image view.
-        Picasso.get().load(book.getCoverPicture()).into(holder.bookPicture);
+        Picasso.get().load(book.getImage()).into(holder.bookPicture);
 
         // on click listener on holder
         holder.itemView.setOnClickListener(v -> {
