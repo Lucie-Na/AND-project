@@ -1,5 +1,6 @@
 package android.bounsha_company.mycozylib;
 
+import android.bounsha_company.mycozylib.recyclerView.BookListAdapter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -87,7 +88,7 @@ public class ResearchFragment extends Fragment
                     String title = volumeObj.optString("title");
                     String subtitle = volumeObj.optString("subtitle");
                     String publisher = volumeObj.optString("publisher");
-                    String publishedDate = volumeObj.optString("publishedDate");
+                    int publishedDate = volumeObj.optInt("publishedDate");
                     String description = volumeObj.optString("description");
                     int pageCount = volumeObj.optInt("pageCount");
                     JSONObject imageLinks = volumeObj.optJSONObject("imageLinks");
@@ -111,7 +112,7 @@ public class ResearchFragment extends Fragment
 
                     // below line is use to pass our
                     // array list in adapter class.
-                    BookAdapter adapter = new BookAdapter(bookArrayList, getContext());
+                    BookListAdapter adapter = new BookListAdapter(new BookListAdapter.BookDiff());
 
                     // below line is use to add linear layout
                     // manager for our recycler view.

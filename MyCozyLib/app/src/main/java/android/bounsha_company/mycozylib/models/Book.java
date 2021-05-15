@@ -25,7 +25,7 @@ public class Book
     @ColumnInfo(name = "editor")
     private String editor;
     @ColumnInfo(name = "published_date")
-    private String publishedDate;
+    private int publishedDate;
     @ColumnInfo(name = "number_of_pages")
     private int pageCount;
     @ColumnInfo(name = "image")
@@ -38,7 +38,7 @@ public class Book
 
     // constructor
     public Book(@NonNull String title, String subtitle, @NonNull String authors, String editor,
-                String publishedDate, String description, int pageCount, String image,
+                int publishedDate, String description, int pageCount, String image,
                 String previewLink, String infoLink)
     {
         this.title = title;
@@ -90,11 +90,11 @@ public class Book
         this.editor = publisher;
     }
 
-    public String getPublishedDate() {
+    public int getPublishedDate() {
         return publishedDate;
     }
 
-    public void setPublishedDate(String publishedDate) {
+    public void setPublishedDate(int publishedDate) {
         this.publishedDate = publishedDate;
     }
 

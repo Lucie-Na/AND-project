@@ -1,5 +1,6 @@
-package android.bounsha_company.mycozylib;
+package android.bounsha_company.mycozylib.library;
 
+import android.bounsha_company.mycozylib.R;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
