@@ -19,7 +19,7 @@ import com.google.android.material.navigation.NavigationView;
 public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     private DrawerLayout drawer;
-    private BottomNavigationView bottomNav;
+    private Toolbar toolbar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         setContentView(R.layout.activity_main);
 
         //create the toolbar
-        Toolbar toolbar = findViewById(R.id.toolbar);
+        toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
         //create the drawer
@@ -66,24 +66,34 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         {
             case R.id.nav_library:
                 selectedFragment = new LibraryFragment();
+                toolbar.setTitle(R.string.nav_library);
                 break;
             case R.id.nav_wish_list:
                 selectedFragment = new WishFragment();
+                toolbar.setTitle(R.string.nav_wish_list);
                 break;
             case R.id.nav_recommendations:
                 selectedFragment = new RecommendationFragment();
+                toolbar.setTitle(R.string.nav_recommendations);
                 break;
             case R.id.nav_research:
                 selectedFragment = new ResearchFragment();
+                toolbar.setTitle(R.string.nav_research);
                 break;
             case R.id.nav_friends:
                 selectedFragment = new FriendFragment();
+                toolbar.setTitle(R.string.nav_friends);
                 break;
             case R.id.nav_posts:
                 selectedFragment = new PostFragment();
+                toolbar.setTitle(R.string.nav_posts);
                 break;
             case R.id.nav_settings:
                 selectedFragment = new SettingFragment();
+                toolbar.setTitle(R.string.nav_settings);
+                break;
+            default:
+                toolbar.setTitle(R.string.app_name);
                 break;
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container, selectedFragment).commit();

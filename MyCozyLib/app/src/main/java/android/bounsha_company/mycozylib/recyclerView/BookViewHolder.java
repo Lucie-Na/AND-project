@@ -53,8 +53,8 @@ public class BookViewHolder extends RecyclerView.ViewHolder
         bookSubtitle.setText(book.getSubtitle());
         bookAuthor.setText(book.getAuthors());
         bookEditor.setText(book.getEditor());
-        //bookPageCount.setText(book.getPageCount());
-        bookPublishedDate.setText(book.getPublishedDate());
+        bookPageCount.setText(String.valueOf(book.getPageCount()));
+        bookPublishedDate.setText(String.valueOf(book.getPublishedDate()));
         //bookPicture.setImageURI(book.getImage());
 
         itemView.setOnClickListener(v -> {

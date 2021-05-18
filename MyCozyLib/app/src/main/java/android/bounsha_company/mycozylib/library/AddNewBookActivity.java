@@ -15,9 +15,9 @@ public class AddNewBookActivity extends AppCompatActivity {
 
     public static final String EXTRA_REPLY = "com.example.android.booksql.REPLY";
 
-
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState)
+    {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_book);
 
@@ -30,8 +30,9 @@ public class AddNewBookActivity extends AppCompatActivity {
         EditText editNewBookPageCount = findViewById(R.id.new_book_number_of_pages);
 
         ImageButton backButton = findViewById(R.id.btn_add_new_book_back);
-        //backButton.setOnClickListener();
+        // #TODO : backButton.setOnClickListener();
 
+        // initialize the button to add the book
         Button btn = findViewById(R.id.new_book_button_save);
         btn.setOnClickListener(view ->
         {
