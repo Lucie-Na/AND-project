@@ -37,6 +37,5 @@ public interface BookDAO
      * @return LiveData<List<Book>> : list that contains all the books from the database
      */
     @Query("SELECT * FROM book ORDER BY title ASC")
-    //LiveData<List<Book>> getTitleAsc();
-    List<Book> getTitleAsc();
+    LiveData<List<Book>> getTitleAsc();
 }

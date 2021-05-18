@@ -79,20 +79,11 @@ public class LibraryFragment extends Fragment{
 
         // #TODO : delete this, it only was here for testing
         bookViewModel = new ViewModelProvider(getActivity()).get(BookViewModel.class);
-        ArrayList<Book> bookList = new ArrayList<Book>();
-        Book book1 = new Book("test1", "test1", "test1", "test1", 0, "test1", 0, "test1");
-        Book book2 = new Book("test2", "test2", "test2", "test2", 0, "test2", 0, "test2");
-        bookViewModel.insert(book1);
-        bookViewModel.insert(book2);
-        bookList.add(book1);
-        bookList.add(book2);
-        adapter.submitList(bookList);
-
-        /*bookViewModel.getBookList().observe(getViewLifecycleOwner(), books ->
+        bookViewModel.getBookList().observe(getViewLifecycleOwner(), books ->
         {
             // update the cached copy of the books in the adapter
             adapter.submitList(books);
-        });*/
+        });
     }
 
     //set an action when a specified item of the menu is clicked

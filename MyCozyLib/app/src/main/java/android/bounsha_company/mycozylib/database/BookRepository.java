@@ -28,8 +28,7 @@ public class BookRepository {
      * getBookList : return the content of the database as a list, sorted by title ascending order
      * @return LiveData<List<Book>> : list that contains all the books from the database
      */
-    //public LiveData<List<Book>> getBookList()
-    public List<Book> getBookList()
+    public LiveData<List<Book>> getBookList()
     {
         return bookDAO.getTitleAsc();
     }
