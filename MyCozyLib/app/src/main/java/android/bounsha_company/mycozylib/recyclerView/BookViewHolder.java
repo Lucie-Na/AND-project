@@ -1,14 +1,18 @@
+/**
+ * This class defines the comportment of each element of the recycler view
+ * by Naffien Lucie
+ */
 package android.bounsha_company.mycozylib.recyclerView;
 
 import android.bounsha_company.mycozylib.BookDetailsFragment;
 import android.bounsha_company.mycozylib.R;
+import android.bounsha_company.mycozylib.models.Book;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
@@ -17,30 +21,41 @@ public class BookViewHolder extends RecyclerView.ViewHolder
 {
     private TextView bookTitle;
     private TextView bookSubtitle;
+    private TextView bookAuthor;
     private TextView bookEditor;
     private TextView bookPageCount;
     private TextView bookPublishedDate;
     private ImageView bookPicture;
 
-    private BookViewHolder(@NonNull View itemView)
+    /**
+     * BookViewHolder : initialize a BookViewHolder instance
+     * @param itemView : current recycler view item
+     */
+    private BookViewHolder(View itemView)
     {
         super(itemView);
         bookTitle = itemView.findViewById(R.id.text_book_title);
         bookSubtitle = itemView.findViewById(R.id.text_book_subtitle);
+        bookAuthor = itemView.findViewById(R.id.text_book_author);
         bookEditor = itemView.findViewById(R.id.text_book_editor);
         bookPageCount = itemView.findViewById(R.id.text_book_page_count);
         bookPublishedDate = itemView.findViewById(R.id.text_book_published_date);
         bookPicture = itemView.findViewById(R.id.img_book_cover);
     }
 
-    public void bind(String title, String subtitle, String editor, int pageCount, int publishedDate, String cover )
+    /**
+     * bind : bind the view with the corresponding data
+     * @param book : book to bind
+     */
+    public void bind(Book book)
     {
-        bookTitle.setText(title);
-        bookSubtitle.setText(subtitle);
-        bookEditor.setText(editor);
-        bookPageCount.setText(pageCount);
-        bookPublishedDate.setText(publishedDate);
-        //bookPicture.setImageURI(cover);
+        bookTitle.setText(book.getTitle());
+        bookSubtitle.setText(book.getSubtitle());
+        bookAuthor.setText(book.getAuthors());
+        bookEditor.setText(book.getEditor());
+        //bookPageCount.setText(book.getPageCount());
+        bookPublishedDate.setText(book.getPublishedDate());
+        //bookPicture.setImageURI(book.getImage());
 
         itemView.setOnClickListener(v -> {
             // inside on click listener method we are calling a new activity
@@ -53,7 +68,7 @@ public class BookViewHolder extends RecyclerView.ViewHolder
             i.putExtra("publishedDate", book.getPublishedDate());
             i.putExtra("description", book.getDescription());
             i.putExtra("pageCount", book.getPageCount());
-            i.putExtra("thumbnail", book.getCoverPicture());
+            i.putExtra("thumbnail", book.getImage());
             i.putExtra("previewLink", book.getPreviewLink());
             i.putExtra("infoLink", book.getInfoLink());
 
@@ -66,7 +81,12 @@ public class BookViewHolder extends RecyclerView.ViewHolder
         });
     }
 
-    static BookViewHolder create (ViewGroup parent)
+    /**
+     * create : create a new and inflate it with the corresponding data
+     * @param parent : ViewGroup : parent view of the current recycler view item
+     * @return : BookViewHolder :
+     */
+    public static BookViewHolder create (ViewGroup parent)
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_view_book, parent, false);

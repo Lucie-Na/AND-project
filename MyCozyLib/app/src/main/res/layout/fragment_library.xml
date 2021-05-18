@@ -16,6 +16,16 @@
             android:layout_height="wrap_content"
             android:layout_centerInParent="true"
             android:visibility="gone" />
+
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/fab_library"
+            android:contentDescription="Add a new book"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="end|bottom"
+            android:layout_margin="16dp"
+            android:src="@drawable/ic_add_circle_24"
+            app:maxImageSize="65dp" />
     </FrameLayout>
 
     <com.google.android.material.bottomnavigation.BottomNavigationView

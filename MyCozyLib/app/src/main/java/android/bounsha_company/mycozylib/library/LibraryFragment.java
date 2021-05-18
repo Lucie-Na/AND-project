@@ -1,6 +1,8 @@
 package android.bounsha_company.mycozylib.library;
 
+import android.bounsha_company.mycozylib.MainActivity;
 import android.bounsha_company.mycozylib.R;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
@@ -12,8 +14,12 @@ import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 public class LibraryFragment extends Fragment{
+
+    public static final int NEW_BOOK_ACTIVITY_REQUEST_CODE = 1;
+
     @Nullable
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
@@ -26,6 +32,13 @@ public class LibraryFragment extends Fragment{
 
         //default view : list view
         getFragmentManager().beginTransaction().replace(R.id.fragment_library_view_container, new ListViewFragment()).commit();
+
+        FloatingActionButton fab = currentView.findViewById(R.id.fab_library);
+        fab.setOnClickListener( view ->
+        {
+            Intent intent = new  Intent(currentView.getContext(), AddNewBookActivity.class );
+            startActivityForResult(intent, NEW_BOOK_ACTIVITY_REQUEST_CODE);
+        });
 
         return currentView;
     }

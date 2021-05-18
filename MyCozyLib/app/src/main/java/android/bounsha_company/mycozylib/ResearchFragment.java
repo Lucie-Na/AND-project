@@ -1,6 +1,6 @@
 package android.bounsha_company.mycozylib;
 
-import android.bounsha_company.mycozylib.recyclerView.BookListAdapter;
+import android.bounsha_company.mycozylib.recyclerView.BookAdapter;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -104,7 +104,7 @@ public class ResearchFragment extends Fragment
                     }
                     // after extracting all the data we are
                     // saving this data in our modal class.
-                    Book book = new Book(title, subtitle, stringAuthors, publisher, publishedDate, description, pageCount, thumbnail, previewLink, infoLink);
+                    Book book = new Book(title, subtitle, stringAuthors, publisher, publishedDate, description, pageCount, thumbnail);
 
                     // below line is use to pass our modal
                     // class in our array list.
@@ -112,7 +112,7 @@ public class ResearchFragment extends Fragment
 
                     // below line is use to pass our
                     // array list in adapter class.
-                    BookListAdapter adapter = new BookListAdapter(new BookListAdapter.BookDiff());
+                    BookAdapter adapter = new BookAdapter(new BookAdapter.BookDiff());
 
                     // below line is use to add linear layout
                     // manager for our recycler view.

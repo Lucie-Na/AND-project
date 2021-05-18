@@ -1,3 +1,7 @@
+/**
+ * This interface contains all the queries needed to interact with the local database
+ * by Naffien Lucie
+ */
 package android.bounsha_company.mycozylib.database;
 
 import android.bounsha_company.mycozylib.models.Book;
@@ -13,17 +17,26 @@ import java.util.List;
 @Dao
 public interface BookDAO
 {
-
+    /**
+     * insert : insert a given book in the database
+     * @param book : book to insert
+     */
     // allowing the insert of the same word multiple times by passing a
     // conflict resolution strategy
     @Insert(onConflict = OnConflictStrategy.IGNORE)
-    public void insert(Book book);
+    void insert(Book book);
 
-    //clean the table
+    /**
+     * deleteAll : clean the table "book"
+     */
     @Query("DELETE FROM book")
-    public void deleteAll();
+    void deleteAll();
 
-    //select everything from the table sorted in ascending order
+    /**
+     * getTitleAsc : select everything from the table "book" sorted in title ascending order
+     * @return LiveData<List<Book>> : list that contains all the books from the database
+     */
     @Query("SELECT * FROM book ORDER BY title ASC")
-    public LiveData<List<Book>> getTitleAsc();
+    //LiveData<List<Book>> getTitleAsc();
+    List<Book> getTitleAsc();
 }

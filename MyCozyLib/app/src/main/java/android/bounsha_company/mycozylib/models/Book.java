@@ -3,6 +3,7 @@ package android.bounsha_company.mycozylib.models;
 import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.ArrayList;
@@ -19,7 +20,6 @@ public class Book
     private String title;
     @ColumnInfo(name = "subtitle")
     private String subtitle;
-    @NonNull
     @ColumnInfo(name = "authors")
     private String authors;
     @ColumnInfo(name = "editor")
@@ -28,18 +28,18 @@ public class Book
     private int publishedDate;
     @ColumnInfo(name = "number_of_pages")
     private int pageCount;
-    @ColumnInfo(name = "image")
-    private String image;
     @ColumnInfo(name = "description")
     private String description;
+    @ColumnInfo(name = "image")
+    private String image;
+
 
     private String previewLink;
     private String infoLink;
 
     // constructor
-    public Book(@NonNull String title, String subtitle, @NonNull String authors, String editor,
-                int publishedDate, String description, int pageCount, String image,
-                String previewLink, String infoLink)
+    public Book(@NonNull String title, String subtitle, String authors, String editor,
+                int publishedDate, String description, int pageCount, String image)
     {
         this.title = title;
         this.subtitle = subtitle;
@@ -49,8 +49,6 @@ public class Book
         this.description = description;
         this.pageCount = pageCount;
         this.image = image;
-        this.previewLink = previewLink;
-        this.infoLink = infoLink;
     }
 
     // get and set methods
@@ -118,7 +116,7 @@ public class Book
         return image;
     }
 
-    public void setCoverPicture(String image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

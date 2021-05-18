@@ -20,7 +20,6 @@
     <string name="nav_grid_view">Grid View</string>
     <string name="nav_image_view">Image View</string>
 
-
     <!-- Resources for authentication -->
     <string name="welcome_message">Welcome to @string/app_name !</string>
     <string name="sign_in_message">Sign In</string>
@@ -41,14 +40,20 @@
     <!-- For the research -->
     <string name="text_research">Search...</string>
 
-    <!-- For the book informations -->
-    <string name="text_book_title">Book Title</string>
-    <string name="text_book_subtitle">Book Subtitle</string>
+    <!-- For the book information -->
+    <string name="text_book_title">Title</string>
+    <string name="text_book_subtitle">Subtitle</string>
+    <string name="text_book_author">Author / Authors</string>
     <string name="text_book_editor">Editor</string>
     <string name="text_book_page_count">Number of pages</string>
     <string name="text_book_published_date">Published date</string>
     <string name="text_book_synopsis">Synopsis</string>
     <string name="text_library_add">Add this book to my Library</string>
     <string name="text_wish_list_add">Add this book to my Wish List</string>
+
+    <!-- For the book modifications -->
+    <string name="new_book">New book</string>
+    <string name="book_saved">Book saved</string>
+    <string name="book_empty_not_saved">Book not saved because it\'s empty</string>
 
 </resources>
