@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    app:cardElevation="8dp">
+    app:cardElevation="8dp"
+    android:layout_margin="@dimen/big_padding">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -24,13 +25,13 @@
                 android:id="@+id/text_book_title"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_book_title" />
+                android:text="@string/text_book_title"/>
 
             <TextView
                 android:id="@+id/text_book_subtitle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="@string/text_book_subtitle" />
+                android:text="@string/text_book_subtitle"/>
 
             <TextView
                 android:id="@+id/text_book_author"

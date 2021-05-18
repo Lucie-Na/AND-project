@@ -6,6 +6,7 @@ import android.bounsha_company.mycozylib.recyclerView.BookAdapter;
 import android.bounsha_company.mycozylib.viewModel.BookViewModel;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,8 +23,6 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
-
-import java.util.ArrayList;
 
 import static android.app.Activity.RESULT_OK;
 
@@ -50,7 +49,7 @@ public class LibraryFragment extends Fragment{
         // initialize book list
         inflateLibraryBookList(currentView);
 
-        //initialize bottom navigation
+        // initialize bottom navigation
         BottomNavigationView bottomNav = currentView.findViewById(R.id.bottom_nav);
         bottomNav.setOnNavigationItemSelectedListener(navListener);
 
@@ -58,7 +57,8 @@ public class LibraryFragment extends Fragment{
         FloatingActionButton fab = currentView.findViewById(R.id.fab_library);
         fab.setOnClickListener( view ->
         {
-            Intent intent = new  Intent(currentView.getContext(), AddNewBookActivity.class );
+            Intent intent = new Intent(currentView.getContext(), AddNewBookActivity.class);
+            // wait a result from the new activity
             startActivityForResult(intent, NEW_BOOK_ACTIVITY_REQUEST_CODE);
         });
 
@@ -77,7 +77,7 @@ public class LibraryFragment extends Fragment{
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
-        // #TODO : delete this, it only was here for testing
+        // set an observer to update the database when a new book is created
         bookViewModel = new ViewModelProvider(getActivity()).get(BookViewModel.class);
         bookViewModel.getBookList().observe(getViewLifecycleOwner(), books ->
         {
@@ -110,13 +110,21 @@ public class LibraryFragment extends Fragment{
             };
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
+    {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK)
+        if(requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE)
         {
-            Book book = new Book("test", "test", "test", "test", 2021, "test", 0, "" );
-            //data.getStringExtra(AddNewBookActivity.EXTRA_REPLY));
-            bookViewModel.insert(book);
+            bookViewModel.insert(
+                    new Book(data.getStringExtra("title"),
+                            data.getStringExtra("subtitle"),
+                            data.getStringExtra("author"),
+                            data.getStringExtra("editor"),
+                            data.getIntExtra("publishedDate", 0),
+                            data.getStringExtra("description"),
+                            data.getIntExtra("pageCount", 0),
+                            "" ) );
+            Toast.makeText(getContext(), R.string.book_saved, Toast.LENGTH_SHORT).show();
         }
         else
         {

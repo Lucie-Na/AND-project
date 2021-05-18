@@ -55,5 +55,6 @@
     <string name="new_book">New book</string>
     <string name="book_saved">Book saved</string>
     <string name="book_empty_not_saved">Book not saved because it\'s empty</string>
+    <string name="error_book_title_empty">Please fill the book title.</string>
 
 </resources>

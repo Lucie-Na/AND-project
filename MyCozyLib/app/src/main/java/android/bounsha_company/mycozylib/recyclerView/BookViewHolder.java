@@ -27,6 +27,8 @@ public class BookViewHolder extends RecyclerView.ViewHolder
     private TextView bookPublishedDate;
     private ImageView bookPicture;
 
+    private View currentView;
+
     /**
      * BookViewHolder : initialize a BookViewHolder instance
      * @param itemView : current recycler view item
@@ -34,6 +36,7 @@ public class BookViewHolder extends RecyclerView.ViewHolder
     private BookViewHolder(View itemView)
     {
         super(itemView);
+        currentView = itemView;
         bookTitle = itemView.findViewById(R.id.text_book_title);
         bookSubtitle = itemView.findViewById(R.id.text_book_subtitle);
         bookAuthor = itemView.findViewById(R.id.text_book_author);
@@ -53,8 +56,8 @@ public class BookViewHolder extends RecyclerView.ViewHolder
         bookSubtitle.setText(book.getSubtitle());
         bookAuthor.setText(book.getAuthors());
         bookEditor.setText(book.getEditor());
-        bookPageCount.setText(String.valueOf(book.getPageCount()));
-        bookPublishedDate.setText(String.valueOf(book.getPublishedDate()));
+        bookPageCount.setText(currentView.getContext().getResources().getString(R.string.text_book_page_count) + ": " + String.valueOf(book.getPageCount()));
+        bookPublishedDate.setText(currentView.getContext().getResources().getString(R.string.text_book_published_date) + ": " +String.valueOf(book.getPublishedDate()));
         //bookPicture.setImageURI(book.getImage());
 
         itemView.setOnClickListener(v -> {
