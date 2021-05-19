@@ -2,7 +2,7 @@
  * This interface contains all the queries needed to interact with the local database
  * by Naffien Lucie
  */
-package android.bounsha_company.mycozylib.database;
+package android.bounsha_company.mycozylib.database.local_database;
 
 import android.bounsha_company.mycozylib.models.Book;
 

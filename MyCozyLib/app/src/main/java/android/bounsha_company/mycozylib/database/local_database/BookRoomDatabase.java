@@ -2,7 +2,7 @@
  * This class create the database
  * by Naffien Lucie
  */
-package android.bounsha_company.mycozylib.database;
+package android.bounsha_company.mycozylib.database.local_database;
 
 import android.bounsha_company.mycozylib.models.Book;
 import android.content.Context;

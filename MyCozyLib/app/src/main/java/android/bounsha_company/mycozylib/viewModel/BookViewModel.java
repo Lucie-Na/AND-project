@@ -5,7 +5,7 @@
 package android.bounsha_company.mycozylib.viewModel;
 
 import android.app.Application;
-import android.bounsha_company.mycozylib.database.BookRepository;
+import android.bounsha_company.mycozylib.database.local_database.BookRepository;
 import android.bounsha_company.mycozylib.models.Book;
 
 import androidx.annotation.NonNull;

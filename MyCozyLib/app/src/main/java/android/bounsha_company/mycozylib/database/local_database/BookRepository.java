@@ -2,7 +2,7 @@
  * This class execute all the database's queries
  * by Naffien Lucie
  */
-package android.bounsha_company.mycozylib.database;
+package android.bounsha_company.mycozylib.database.local_database;
 
 import android.app.Application;
 import android.bounsha_company.mycozylib.models.Book;
