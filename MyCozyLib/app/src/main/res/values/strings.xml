@@ -1,6 +1,6 @@
 <resources>
     <!-- Resources for menus -->
-    <!-- For the drawer -->
+    <!--- For the drawer -->
     <string name="app_name">MyCozyLib</string>
     <string name="nav_library">My library</string>
     <string name="nav_wish_list">Wish List</string>
@@ -15,10 +15,13 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
-    <!-- For the bottom navigation -->
+    <!--- For the bottom navigation -->
     <string name="nav_list_view">List View</string>
     <string name="nav_grid_view">Grid View</string>
     <string name="nav_image_view">Image View</string>
+
+    <!--- For navigation between pages -->
+    <string name="nav_back">Go back</string>
 
     <!-- Resources for authentication -->
     <string name="welcome_message">Welcome to @string/app_name !</string>
@@ -36,25 +39,31 @@
     <string name="text_already_an_account">You already have an account ? </string>
     <string name="link_already_an_account">Click here connect !</string>
 
-    <!-- Resources for specified fragments -->
-    <!-- For the research -->
+    <!-- Resources for specified activities and fragments -->
+    <!--- Research -->
     <string name="text_research">Search...</string>
 
-    <!-- For the book information -->
+    <!--- Book information -->
     <string name="text_book_title">Title</string>
     <string name="text_book_subtitle">Subtitle</string>
-    <string name="text_book_author">Author / Authors</string>
+    <string name="text_book_author">Author/s</string>
     <string name="text_book_editor">Editor</string>
     <string name="text_book_page_count">Number of pages</string>
     <string name="text_book_published_date">Published date</string>
     <string name="text_book_synopsis">Synopsis</string>
-    <string name="text_library_add">Add this book to my Library</string>
-    <string name="text_wish_list_add">Add this book to my Wish List</string>
+    <string name="book_cover">Book cover</string>
 
-    <!-- For the book modifications -->
-    <string name="new_book">New book</string>
+    <!--- Database modifications -->
     <string name="book_saved">Book saved</string>
     <string name="book_empty_not_saved">Book not saved because it\'s empty</string>
-    <string name="error_book_title_empty">Please fill the book title.</string>
+    <string name="error_book_title_empty">Please fill the book title</string>
+    <string name="error_unexpected">An unexpected error happened. Please contact our developers</string>
+
+    <!--- New book -->
+    <string name="new_book">New book</string>
+    <string name="text_library_add">Add this book to my Library</string>
+
+    <!--- Wish list -->
+    <string name="text_wish_list_add">Add this book to my Wish List</string>
 
 </resources>

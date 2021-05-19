@@ -6,7 +6,6 @@ import android.bounsha_company.mycozylib.recyclerView.BookAdapter;
 import android.bounsha_company.mycozylib.viewModel.BookViewModel;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MenuItem;
 import android.view.View;
@@ -24,9 +23,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+import static android.app.Activity.RESULT_CANCELED;
 import static android.app.Activity.RESULT_OK;
 
-public class LibraryFragment extends Fragment{
+public class LibraryFragment extends Fragment {
 
     public static final int NEW_BOOK_ACTIVITY_REQUEST_CODE = 1;
     private BookViewModel bookViewModel;
@@ -34,15 +34,15 @@ public class LibraryFragment extends Fragment{
 
     /**
      * onCreateView : initialize the new Vew
-     * @param inflater : #TODO
-     * @param container : ViewGroup : the group where the new view will be added
+     *
+     * @param inflater           : #TODO
+     * @param container          : ViewGroup : the group where the new view will be added
      * @param savedInstanceState : #TODO
      * @return View : the new View
      */
     @Nullable
     @Override
-    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)
-    {
+    public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         // initialize the view
         View currentView = inflater.inflate(R.layout.fragment_library, container, false);
 
@@ -55,7 +55,7 @@ public class LibraryFragment extends Fragment{
 
         // initialize floating action button
         FloatingActionButton fab = currentView.findViewById(R.id.fab_library);
-        fab.setOnClickListener( view ->
+        fab.setOnClickListener(view ->
         {
             Intent intent = new Intent(currentView.getContext(), AddNewBookActivity.class);
             // wait a result from the new activity
@@ -67,10 +67,10 @@ public class LibraryFragment extends Fragment{
 
     /**
      * inflateLibraryBookList : initialize the book list
+     *
      * @param currentView : View : currentView
      */
-    private void inflateLibraryBookList(View currentView)
-    {
+    private void inflateLibraryBookList(View currentView) {
         // set the recycler views that contains all the books
         recyclerView = (RecyclerView) currentView.findViewById(R.id.recycler_view_library_books_list);
         BookAdapter adapter = new BookAdapter(new BookAdapter.BookDiff());
@@ -88,12 +88,10 @@ public class LibraryFragment extends Fragment{
 
     //set an action when a specified item of the menu is clicked
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
-            new BottomNavigationView.OnNavigationItemSelectedListener(){
+            new BottomNavigationView.OnNavigationItemSelectedListener() {
                 @Override
-                public boolean onNavigationItemSelected(@NonNull MenuItem item)
-                {
-                    switch (item.getItemId())
-                    {
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+                    switch (item.getItemId()) {
                         case R.id.nav_list_view:
                             recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
                             break;
@@ -110,11 +108,9 @@ public class LibraryFragment extends Fragment{
             };
 
     @Override
-    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data)
-    {
+    public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if(requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE)
-        {
+        if (requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             bookViewModel.insert(
                     new Book(data.getStringExtra("title"),
                             data.getStringExtra("subtitle"),
@@ -123,13 +119,14 @@ public class LibraryFragment extends Fragment{
                             data.getIntExtra("publishedDate", 0),
                             data.getStringExtra("description"),
                             data.getIntExtra("pageCount", 0),
-                            "" ) );
+                            ""));
             Toast.makeText(getContext(), R.string.book_saved, Toast.LENGTH_SHORT).show();
         }
+        else if (requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_CANCELED) { }
         else
-        {
-            Toast.makeText(getContext(), R.string.book_empty_not_saved, Toast.LENGTH_SHORT).show();
-        }
+            {
+                Toast.makeText(getContext(), R.string.error_unexpected, Toast.LENGTH_LONG).show();
+            }
     }
 
 

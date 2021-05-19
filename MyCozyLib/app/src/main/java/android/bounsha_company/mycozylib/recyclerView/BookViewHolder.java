@@ -4,9 +4,11 @@
  */
 package android.bounsha_company.mycozylib.recyclerView;
 
-import android.bounsha_company.mycozylib.BookDetailsFragment;
+import android.bounsha_company.mycozylib.BookDetails;
 import android.bounsha_company.mycozylib.R;
 import android.bounsha_company.mycozylib.models.Book;
+import android.content.Intent;
+import android.os.Parcelable;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,6 +18,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import java.io.Serializable;
 
 public class BookViewHolder extends RecyclerView.ViewHolder
 {
@@ -36,6 +40,8 @@ public class BookViewHolder extends RecyclerView.ViewHolder
     private BookViewHolder(View itemView)
     {
         super(itemView);
+
+        // initialize the view and its items
         currentView = itemView;
         bookTitle = itemView.findViewById(R.id.text_book_title);
         bookSubtitle = itemView.findViewById(R.id.text_book_subtitle);
@@ -52,6 +58,7 @@ public class BookViewHolder extends RecyclerView.ViewHolder
      */
     public void bind(Book book)
     {
+        // display the corresponding data
         bookTitle.setText(book.getTitle());
         bookSubtitle.setText(book.getSubtitle());
         bookAuthor.setText(book.getAuthors());
@@ -60,27 +67,14 @@ public class BookViewHolder extends RecyclerView.ViewHolder
         bookPublishedDate.setText(currentView.getContext().getResources().getString(R.string.text_book_published_date) + ": " +String.valueOf(book.getPublishedDate()));
         //bookPicture.setImageURI(book.getImage());
 
+        // initialize a click on the book view
         itemView.setOnClickListener(v -> {
-            // inside on click listener method we are calling a new activity
-            // and passing all the data of that item in next intent.
-            /*Intent i = new Intent(context, Book.class);
-            i.putExtra("title", book.getTitle());
-            i.putExtra("subtitle", book.getSubtitle());
-            i.putExtra("authors", book.getAuthors());
-            i.putExtra("publisher", book.getEditor());
-            i.putExtra("publishedDate", book.getPublishedDate());
-            i.putExtra("description", book.getDescription());
-            i.putExtra("pageCount", book.getPageCount());
-            i.putExtra("thumbnail", book.getImage());
-            i.putExtra("previewLink", book.getPreviewLink());
-            i.putExtra("infoLink", book.getInfoLink());
-
-            // after passing that data we are
-            // starting our new  intent.
-            context.startActivity(i);*/
-            AppCompatActivity activity = (AppCompatActivity) v.getContext();
-            Fragment fragment = new BookDetailsFragment();
-            activity.getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container, fragment).commit();
+            // initialize a new view
+            Intent i = new Intent(currentView.getContext(), BookDetails.class);
+            // send the current book instance to the new view
+            i.putExtra("book", book);
+            // display the new view
+            currentView.getContext().startActivity(i);
         });
     }
 

@@ -20,6 +20,7 @@ public class AddNewBookActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_new_book);
 
+        // initialize all the fields
         EditText editNewBookTitle = findViewById(R.id.new_book_title);
         EditText editNewBookSubtitle = findViewById(R.id.new_book_subtitle);
         EditText editNewBookAuthor = findViewById(R.id.new_book_authors);
@@ -32,7 +33,9 @@ public class AddNewBookActivity extends AppCompatActivity {
         ImageButton backButton = findViewById(R.id.btn_add_new_book_back);
         backButton.setOnClickListener( view ->
                 {
-
+                    Intent replyIntent = new Intent();
+                    setResult(RESULT_CANCELED, replyIntent);
+                    finish();
                 }
         );
 
@@ -41,9 +44,8 @@ public class AddNewBookActivity extends AppCompatActivity {
         btn.setOnClickListener(view ->
         {
             Intent replyIntent = new Intent();
-            if(TextUtils.isEmpty(editNewBookTitle.getText()))
+            if(editNewBookTitle.getText().toString().isEmpty())
             {
-                setResult(RESULT_CANCELED, replyIntent);
                 editNewBookTitle.setError(this.getResources().getString(R.string.error_book_title_empty));
             }
             else
