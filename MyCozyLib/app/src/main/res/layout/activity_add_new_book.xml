@@ -1,18 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:layout_gravity="center"
     android:gravity="top|center"
-    android:padding="@dimen/big_padding" >
+    android:padding="@dimen/big_margin" >
 
     <ImageButton
         android:id="@+id/btn_add_new_book_back"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_arrow_back_24"
-        android:layout_gravity="start"/>
+        android:layout_gravity="start"
+        android:contentDescription="@string/nav_back"/>
 
     <TextView
         android:layout_width="wrap_content"
@@ -72,6 +74,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/text_library_add"
-        android:layout_margin="@dimen/big_padding"/>
+        android:layout_margin="@dimen/big_margin"/>
 
 </LinearLayout>

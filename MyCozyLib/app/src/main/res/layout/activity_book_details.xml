@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:gravity="start"
-    android:layout_margin="@dimen/big_padding">
+    android:layout_margin="@dimen/big_margin">
 
     <ImageButton
         android:id="@+id/btn_book_details_back"
@@ -23,7 +23,7 @@
         android:contentDescription="@string/book_cover"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_book_details_back"
-        android:layout_marginTop="@dimen/small_padding"/>
+        android:layout_marginTop="@dimen/small_margin"/>
 
     <TextView
         android:id="@+id/text_book_details_title"
@@ -41,7 +41,7 @@
         android:text="@string/text_book_subtitle"
         app:layout_constraintLeft_toLeftOf="@+id/text_book_details_title"
         app:layout_constraintTop_toBottomOf="@+id/text_book_details_title"
-        android:paddingStart="@dimen/big_padding"/>
+        android:paddingStart="@dimen/big_margin"/>
 
     <TextView
         android:id="@+id/text_book_details_author"
@@ -83,7 +83,7 @@
         app:layout_constraintTop_toBottomOf="@id/img_book_details_cover"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintRight_toRightOf="parent"
-        android:paddingTop="@dimen/small_padding"/>
+        android:paddingTop="@dimen/small_margin"/>
 
     <Button
         android:layout_width="wrap_content"

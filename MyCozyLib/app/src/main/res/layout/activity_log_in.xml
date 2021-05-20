@@ -7,46 +7,55 @@
     android:layout_margin="@dimen/big_margin"
     tools:context=".auth.LoginActivity">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="start"
-        android:orientation="vertical"        >
-        <!-- Go back button -->
-        <androidx.appcompat.widget.AppCompatImageButton
-            android:id="@+id/btn_sign_in_back"
-            android:layout_width="wrap_content"
+        android:gravity="center|top"
+        android:orientation="vertical">
+
+        <!-- Welcome message and app name -->
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:contentDescription="@string/nav_back"
-            android:src="@drawable/ic_arrow_back_24" />
+            android:layout_margin="@dimen/small_margin">
+
+            <!-- Welcome message -->
+            <TextView
+                android:id="@+id/welcome_message"
+                style="@style/TextBigTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/welcome_message"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <!-- App name -->
+            <TextView
+                android:id="@+id/welcome_message_app_name"
+                style="@style/TextBigTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/app_name"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/welcome_message" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- Page name -->
         <TextView
+            android:id="@+id/log_in_message"
             style="@style/TextSmallTitle"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/big_margin"
             android:layout_marginBottom="@dimen/small_margin"
-            android:text="@string/sign_in_message" />
-
-        <!-- Pseudo field -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_pseudo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/field_pseudo"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
+            android:text="@string/log_in_message" />
 
         <!-- Email field -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_mail"
+            android:id="@+id/text_input_log_in_mail"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true">
@@ -60,7 +69,7 @@
 
         <!-- Password -->
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_password"
+            android:id="@+id/text_input_log_in_password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             app:errorEnabled="true">
@@ -72,37 +81,35 @@
                 android:inputType="textPassword" />
         </com.google.android.material.textfield.TextInputLayout>
 
-        <!-- Confirmed password -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/field_confirm_password"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Submit button -->
         <Button
-            android:id="@+id/button_sign_in_submit"
+            android:id="@+id/button_log_in_submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
             android:layout_margin="@dimen/big_margin"
             android:padding="@dimen/big_margin"
-            android:text="@string/submit" />
+            android:text="@string/submit"
+            android:clickable="true"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/text_no_account" />
+
+        <TextView
+            android:id="@+id/link_sign_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/link_no_account" />
+
     </LinearLayout>
 
-
+    <!-- Progress bar -->
     <ProgressBar
-        android:id="@+id/progress_bar_sign_in"
+        android:id="@+id/progress_bar_log_in"
+        style="?android:attr/progressBarStyleLarge"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="gone"
         android:layout_gravity="center"
-        style="?android:attr/progressBarStyleLarge"/>
+        android:visibility="gone" />
+
 </FrameLayout>

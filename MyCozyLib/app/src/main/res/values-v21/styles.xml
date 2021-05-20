@@ -4,7 +4,12 @@
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="TextTitle" parent="TextAppearance.AppCompat.Title">
+    <style name="TextBigTitle" parent="TextAppearance.AppCompat.Title">
+        <item name="android:textSize">30sp</item>
+    </style>
+
+    <style name="TextSmallTitle" parent="TextAppearance.AppCompat.Title">
         <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
