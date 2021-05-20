@@ -2,6 +2,8 @@ package android.bounsha_company.mycozylib.database.api;
 
 import android.bounsha_company.mycozylib.models.Book;
 
+import java.util.List;
+
 public class BookResponse
 {
     private String title;
@@ -13,8 +15,17 @@ public class BookResponse
     private int pageCount;
     private String thumbnail;
 
+    private List<Book> books;
+
     public Book getBook()
     {
-        return new Book(title, subtitle, authors, publisher, publishedDate, description, pageCount, thumbnail);
+        Book newBook = new Book(title, subtitle, authors, publisher, publishedDate, description, pageCount, thumbnail);
+        books.add(newBook);
+        return newBook;
+    }
+
+    public List<Book> getListBook()
+    {
+        return books;
     }
 }

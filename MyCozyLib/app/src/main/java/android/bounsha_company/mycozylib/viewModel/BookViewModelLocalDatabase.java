@@ -5,7 +5,7 @@
 package android.bounsha_company.mycozylib.viewModel;
 
 import android.app.Application;
-import android.bounsha_company.mycozylib.database.local_database.BookRepository;
+import android.bounsha_company.mycozylib.database.local_database.BookRepositoryLocalDatabase;
 import android.bounsha_company.mycozylib.models.Book;
 
 import androidx.annotation.NonNull;
@@ -14,18 +14,18 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-public class BookViewModel extends AndroidViewModel
+public class BookViewModelLocalDatabase extends AndroidViewModel
 {
-    private BookRepository bookRepository;
+    private BookRepositoryLocalDatabase bookRepository;
 
     /**
      * BookViewModel : initialize the class instance with the database repository
      * @param application : Application
      */
-    public BookViewModel(@NonNull Application application)
+    public BookViewModelLocalDatabase(@NonNull Application application)
     {
         super(application);
-        bookRepository = new BookRepository(application);
+        bookRepository = new BookRepositoryLocalDatabase(application);
     }
 
     /**

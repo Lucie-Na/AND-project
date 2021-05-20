@@ -11,14 +11,14 @@ import androidx.lifecycle.LiveData;
 
 import java.util.List;
 
-public class BookRepository {
+public class BookRepositoryLocalDatabase {
     private BookDAO bookDAO;
 
     /**
      * BookRepository : initialize the class instance with the database and the queries
      * @param application : Application
      */
-    public BookRepository(Application application)
+    public BookRepositoryLocalDatabase(Application application)
     {
         BookRoomDatabase bookRoomDatabase = BookRoomDatabase.getRoomDatabase(application);
         bookDAO = bookRoomDatabase.bookDAO();

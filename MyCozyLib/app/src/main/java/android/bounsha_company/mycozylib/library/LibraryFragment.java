@@ -2,8 +2,8 @@ package android.bounsha_company.mycozylib.library;
 
 import android.bounsha_company.mycozylib.R;
 import android.bounsha_company.mycozylib.models.Book;
-import android.bounsha_company.mycozylib.recyclerView.BookAdapter;
-import android.bounsha_company.mycozylib.viewModel.BookViewModel;
+import android.bounsha_company.mycozylib.recyclerView.BookListAdapter;
+import android.bounsha_company.mycozylib.viewModel.BookViewModelLocalDatabase;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -29,7 +29,7 @@ import static android.app.Activity.RESULT_OK;
 public class LibraryFragment extends Fragment {
 
     public static final int NEW_BOOK_ACTIVITY_REQUEST_CODE = 1;
-    private BookViewModel bookViewModel;
+    private BookViewModelLocalDatabase bookViewModel;
     private RecyclerView recyclerView;
 
     /**
@@ -67,18 +67,18 @@ public class LibraryFragment extends Fragment {
 
     /**
      * inflateLibraryBookList : initialize the book list
-     *
      * @param currentView : View : currentView
      */
-    private void inflateLibraryBookList(View currentView) {
+    private void inflateLibraryBookList(View currentView)
+    {
         // set the recycler views that contains all the books
-        recyclerView = (RecyclerView) currentView.findViewById(R.id.recycler_view_library_books_list);
-        BookAdapter adapter = new BookAdapter(new BookAdapter.BookDiff());
+        recyclerView = currentView.findViewById(R.id.recycler_view_library_books_list);
+        BookListAdapter adapter = new BookListAdapter(new BookListAdapter.BookDiff());
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
 
         // set an observer to update the database when a new book is created
-        bookViewModel = new ViewModelProvider(getActivity()).get(BookViewModel.class);
+        bookViewModel = new ViewModelProvider(getActivity()).get(BookViewModelLocalDatabase.class);
         bookViewModel.getBookList().observe(getViewLifecycleOwner(), books ->
         {
             // update the cached copy of the books in the adapter
@@ -86,6 +86,7 @@ public class LibraryFragment extends Fragment {
         });
     }
 
+    //#TODO
     //set an action when a specified item of the menu is clicked
     private BottomNavigationView.OnNavigationItemSelectedListener navListener =
             new BottomNavigationView.OnNavigationItemSelectedListener() {
@@ -107,6 +108,12 @@ public class LibraryFragment extends Fragment {
                 }
             };
 
+    /**
+     * onActivityResult : add a book to the local data with the information the activity to add books send
+     * @param requestCode #TODO
+     * @param resultCode
+     * @param data
+     */
     @Override
     public void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);

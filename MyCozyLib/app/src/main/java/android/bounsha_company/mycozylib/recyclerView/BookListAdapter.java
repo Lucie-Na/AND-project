@@ -4,6 +4,7 @@
  */
 package android.bounsha_company.mycozylib.recyclerView;
 
+import android.util.Log;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,13 +16,13 @@ import android.bounsha_company.mycozylib.models.Book;
 import java.util.List;
 
 
-public class BookAdapter extends ListAdapter<Book, BookViewHolder>
+public class BookListAdapter extends ListAdapter<Book, BookViewHolder>
 {
     /**
      * BookAdapter : initialize a new instance of the class BookAdapter
      * @param diffCallback : @NonNull DiffUtil.ItemCallback<Book> :
      */
-    public BookAdapter(@NonNull DiffUtil.ItemCallback<Book> diffCallback)
+    public BookListAdapter(@NonNull DiffUtil.ItemCallback<Book> diffCallback)
     {
         super(diffCallback);
     }
@@ -46,9 +47,8 @@ public class BookAdapter extends ListAdapter<Book, BookViewHolder>
     @Override
     public void onBindViewHolder(BookViewHolder holder, int position)
     {
+        Log.e("Debug", "Adapter : begin to bind the data");
         holder.bind(getItem(position));
-        // below line is use to set image from URL in our image view.
-        //Picasso.get().load(book.getImage()).into(holder.bookPicture);
     }
 
     /**
@@ -65,6 +65,7 @@ public class BookAdapter extends ListAdapter<Book, BookViewHolder>
         @Override
         public boolean areItemsTheSame(@NonNull Book oldItem, @NonNull Book newItem)
         {
+            Log.e("Debug", "Adapter.BookDiff : verify if items are the same");
             return oldItem == newItem;
         }
 
@@ -77,6 +78,7 @@ public class BookAdapter extends ListAdapter<Book, BookViewHolder>
         @Override
         public boolean areContentsTheSame(@NonNull Book oldItem, @NonNull Book newItem)
         {
+            Log.e("Debug", "Adapter.BookDiff : verify if contents are the same");
             return ( oldItem.getTitle().equals(newItem.getTitle())
                     && oldItem.getSubtitle().equals(newItem.getSubtitle())
                     && oldItem.getAuthors().equals(newItem.getAuthors())

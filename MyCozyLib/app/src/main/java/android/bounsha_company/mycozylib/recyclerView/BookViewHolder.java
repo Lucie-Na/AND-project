@@ -9,6 +9,7 @@ import android.bounsha_company.mycozylib.R;
 import android.bounsha_company.mycozylib.models.Book;
 import android.content.Intent;
 import android.os.Parcelable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,8 @@ import android.widget.TextView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.bumptech.glide.Glide;
 
 import java.io.Serializable;
 
@@ -50,6 +53,7 @@ public class BookViewHolder extends RecyclerView.ViewHolder
         bookPageCount = itemView.findViewById(R.id.text_book_page_count);
         bookPublishedDate = itemView.findViewById(R.id.text_book_published_date);
         bookPicture = itemView.findViewById(R.id.img_book_cover);
+        Log.e("Debug", "View Holder : new view holder created");
     }
 
     /**
@@ -65,7 +69,8 @@ public class BookViewHolder extends RecyclerView.ViewHolder
         bookEditor.setText(book.getEditor());
         bookPageCount.setText(currentView.getContext().getResources().getString(R.string.text_book_page_count) + ": " + String.valueOf(book.getPageCount()));
         bookPublishedDate.setText(currentView.getContext().getResources().getString(R.string.text_book_published_date) + ": " +String.valueOf(book.getPublishedDate()));
-        //bookPicture.setImageURI(book.getImage());
+        Glide.with(currentView).load(book.getImage()).into(bookPicture);
+        Log.e("Debug", "View Holder : all data have been displayed");
 
         // initialize a click on the book view
         itemView.setOnClickListener(v -> {
@@ -73,9 +78,11 @@ public class BookViewHolder extends RecyclerView.ViewHolder
             Intent i = new Intent(currentView.getContext(), BookDetails.class);
             // send the current book instance to the new view
             i.putExtra("book", book);
+            Log.e("Debug", "View Holder : data has been send to display the book details");
             // display the new view
             currentView.getContext().startActivity(i);
         });
+        Log.e("Debug", "View Holder : creation of an action on a book view");
     }
 
     /**
@@ -87,6 +94,7 @@ public class BookViewHolder extends RecyclerView.ViewHolder
     {
         View view = LayoutInflater.from(parent.getContext())
                 .inflate(R.layout.recycler_view_book, parent, false);
+        Log.e("Debug", "View Holder : creation of an instance");
         return new BookViewHolder(view);
     }
 }

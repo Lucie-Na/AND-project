@@ -12,17 +12,15 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.MyCozyLib">
-        <activity android:name=".BookDetails"></activity>
+        <activity android:name=".AppMainActivity"/>
+        <activity android:name=".BookDetails" />
         <activity android:name=".library.AddNewBookActivity" />
         <activity android:name=".SignInActivity" />
-        <activity android:name=".LoginActivity" />
-        <activity android:name=".MainActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".authentification.LoginActivity" />
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
     </application>
 
 </manifest>
