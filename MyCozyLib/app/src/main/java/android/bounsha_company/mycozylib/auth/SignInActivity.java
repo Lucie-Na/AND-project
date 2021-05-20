@@ -45,15 +45,10 @@ public class SignInActivity extends AppCompatActivity {
     private Button submitButton;
 
     private FirebaseAuth mAuth;
-/*
-    private static final int RC_SIGN_IN = 42;
-    private SignInViewModel signInViewModel;*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        /*signInViewModel = new ViewModelProvider(this).get(SignInViewModel.class);
-        checkIfSignedIn();*/
         setContentView(R.layout.activity_sign_in);
 
         mAuth = FirebaseAuth.getInstance();
@@ -149,7 +144,8 @@ public class SignInActivity extends AppCompatActivity {
         }
     }
 
-    private boolean validateAllFields() {
+    private boolean validateAllFields()
+    {
         return (validateDefault(textInputPseudo) &
                 validateEmail() &
                 validatePassword());
@@ -200,32 +196,6 @@ public class SignInActivity extends AppCompatActivity {
                     });
         }
     }
-        /*
-        // initialize authentication providers
-        List<AuthUI.IdpConfig> providers = Arrays.asList(
-                new AuthUI.IdpConfig.EmailBuilder().build(),
-                new AuthUI.IdpConfig.GoogleBuilder().build(),
-                new AuthUI.IdpConfig.FacebookBuilder().build());
-
-        // Create and launch sign-in intent
-        Intent intent = AuthUI.getInstance()
-                .createSignInIntentBuilder()
-                .setAvailableProviders(providers)
-                .build();
-        startActivityForResult(intent, RC_SIGN_IN);*/
-
-
-
-    /**
-     * checkIfSignedIn : verify if the user doesn't already exists
-     *//*
-    private void checkIfSignedIn() {
-        signInViewModel.getCurrentUser().observe(this, user -> {
-            if (user != null)
-                goToLogInActivity();
-        });
-    }*/
-
 
     /**
      * goToLogInActivity : return to the log in page
@@ -234,28 +204,6 @@ public class SignInActivity extends AppCompatActivity {
         startActivity(new Intent(this, LoginActivity.class));
         finish();
     }
-
-/*
-
-    /**
-     * onActivityResult : #TODO
-     *
-     * @param requestCode
-     * @param resultCode
-     * @param data
-     *//*
-    @Override
-    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-
-        // if the sign in succeed
-        if (requestCode == RC_SIGN_IN && resultCode == RESULT_OK) {
-            goToLogInActivity();
-        } else {
-            Toast.makeText(this, R.string.error_sign_in, Toast.LENGTH_SHORT).show();
-        }
-
-    }*/
 
 
 }
