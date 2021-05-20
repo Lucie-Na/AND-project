@@ -71,21 +71,13 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 selectedFragment = new WishFragment();
                 toolbar.setTitle(R.string.nav_wish_list);
                 break;
-            case R.id.nav_recommendations:
-                selectedFragment = new RecommendationFragment();
-                toolbar.setTitle(R.string.nav_recommendations);
-                break;
             case R.id.nav_research:
                 selectedFragment = new ResearchFragment();
                 toolbar.setTitle(R.string.nav_research);
                 break;
-            case R.id.nav_friends:
-                selectedFragment = new FriendFragment();
-                toolbar.setTitle(R.string.nav_friends);
-                break;
-            case R.id.nav_posts:
-                selectedFragment = new PostFragment();
-                toolbar.setTitle(R.string.nav_posts);
+            case R.id.nav_disconnection:
+                selectedFragment = new DisconnectionFragment();
+                toolbar.setTitle(R.string.nav_disconnection);
                 break;
             case R.id.nav_settings:
                 selectedFragment = new SettingFragment();

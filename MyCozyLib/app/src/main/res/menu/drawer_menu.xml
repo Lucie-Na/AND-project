@@ -13,35 +13,28 @@
             android:icon="@drawable/ic_wish_24"
             android:title="@string/nav_wish_list" />
         <item
-            android:id="@+id/nav_recommendations"
-            android:icon="@drawable/ic_recommend_24"
-            android:title="@string/nav_recommendations" />
-        <item
             android:id="@+id/nav_research"
             android:icon="@drawable/ic_search_24"
             android:title="@string/nav_research" />
     </group>
 
 
-    <item android:title="@string/nav_title_social">
+    <item android:title="@string/nav_title_parameter">
         <menu>
             <group android:checkableBehavior="single">
                 <item
-                    android:id="@+id/nav_friends"
-                    android:icon="@drawable/ic_friends_24"
-                    android:title="@string/nav_friends" />
+                    android:id="@+id/nav_settings"
+                    android:icon="@drawable/ic_settings_24"
+                    android:title="@string/nav_settings" />
                 <item
-                    android:id="@+id/nav_posts"
-                    android:icon="@drawable/ic_post_24"
-                    android:title="@string/nav_posts" />
+                    android:id="@+id/nav_disconnection"
+                    android:icon="@drawable/ic_waving_hand_24"
+                    android:title="@string/nav_disconnection" />
             </group>
         </menu>
     </item>
 
     <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_settings"
-            android:icon="@drawable/ic_settings_24"
-            android:title="@string/nav_settings" />
+
     </group>
 </menu>
