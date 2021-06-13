@@ -66,10 +66,10 @@ public class BookViewHolder extends RecyclerView.ViewHolder
         bookTitle.setText(book.getTitle());
         bookSubtitle.setText(book.getSubtitle());
         bookAuthor.setText(book.getAuthors());
-        bookEditor.setText(book.getEditor());
-        bookPageCount.setText(currentView.getContext().getResources().getString(R.string.text_book_page_count) + ": " + String.valueOf(book.getPageCount()));
-        bookPublishedDate.setText(currentView.getContext().getResources().getString(R.string.text_book_published_date) + ": " +String.valueOf(book.getPublishedDate()));
-        Glide.with(currentView).load(book.getImage()).into(bookPicture);
+        bookEditor.setText(book.getPublishers());
+        bookPageCount.setText(currentView.getContext().getResources().getString(R.string.text_book_page_count) + ": " + String.valueOf(book.getNumber_of_pages()));
+        bookPublishedDate.setText(currentView.getContext().getResources().getString(R.string.text_book_published_date) + ": " +String.valueOf(book.getPublish_date()));
+        Glide.with(currentView).load(book.getUrl()).into(bookPicture);
         Log.e("Debug", "View Holder : all data have been displayed");
 
         // initialize a click on the book view

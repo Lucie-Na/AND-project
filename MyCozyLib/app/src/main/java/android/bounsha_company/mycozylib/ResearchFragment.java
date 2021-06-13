@@ -1,8 +1,7 @@
 package android.bounsha_company.mycozylib;
 
 import android.bounsha_company.mycozylib.recyclerView.BookListAdapter;
-import android.bounsha_company.mycozylib.viewModel.BookViewModelAPI;
-import android.bounsha_company.mycozylib.viewModel.BookViewModelLocalDatabase;
+import android.bounsha_company.mycozylib.database.api.BookViewModelAPI;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -36,7 +35,7 @@ public class ResearchFragment extends Fragment
         Log.e("Debug", "Search Book : layouts initialize");
 
         bookViewModelAPI = new ViewModelProvider(getActivity()).get(BookViewModelAPI.class);
-        bookViewModelAPI.searchForBook(researchInputText.getText().toString());
+        bookViewModelAPI.getBookByName(researchInputText.getText().toString());
         Log.e("Debug", "Search Book : view model for API initializes");
 
         // initialize book list
@@ -45,13 +44,15 @@ public class ResearchFragment extends Fragment
         // initialize on click listener to send the research
         submitResearchButton.setOnClickListener(v ->
         {
+            Log.e("Debug", "Search Book : new research");
             progressBar.setVisibility(View.VISIBLE);
 
             // checking if research field is not empty
             if (!researchInputText.getText().toString().isEmpty())
             {
+                Log.e("Debug", "Search Book : research not empty");
                 // load the result
-                bookViewModelAPI.searchForBook(researchInputText.getText().toString());
+                bookViewModelAPI.getBookByName(researchInputText.getText().toString());
             }
             else
             {
@@ -79,7 +80,7 @@ public class ResearchFragment extends Fragment
 
         // set an observer to update the database when a new book is created
         BookViewModelAPI viewModel = new ViewModelProvider(getActivity()).get(BookViewModelAPI.class);
-        viewModel.getSearchedBook().observe(getViewLifecycleOwner(), books ->
+        viewModel.getBook().observe(getViewLifecycleOwner(), books ->
         {
             // update the cached copy of the books in the adapter
             adapter.submitList(books);

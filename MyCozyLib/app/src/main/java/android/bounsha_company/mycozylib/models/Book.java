@@ -15,7 +15,7 @@ public class Book implements Serializable
     @PrimaryKey(autoGenerate = true)
     @NonNull
     @ColumnInfo(name = "ID")
-    int localID;
+    public int localID;
     @NonNull
     @ColumnInfo(name = "title")
     private String title;
@@ -24,44 +24,37 @@ public class Book implements Serializable
     @ColumnInfo(name = "authors")
     private String authors;
     @ColumnInfo(name = "editor")
-    private String editor;
+    private String publishers;
     @ColumnInfo(name = "published_date")
-    private int publishedDate;
+    private int publish_date;
     @ColumnInfo(name = "number_of_pages")
-    private int pageCount;
+    private int number_of_pages;
     @ColumnInfo(name = "description")
     private String description;
     @ColumnInfo(name = "image")
-    private String image;
-
-
-    private String previewLink;
-    private String infoLink;
+    private String url;
 
     // constructor
-    public Book(@NonNull String title, String subtitle, String authors, String editor,
-                int publishedDate, String description, int pageCount, String image)
+    public Book(@NonNull String title, String subtitle, String author, String publisher,
+                int publish_date, String description, int number_of_pages, String url)
     {
-        this.title = title;
-        this.subtitle = subtitle;
-        this.authors = authors;
-        this.editor = editor;
-        this.publishedDate = publishedDate;
-        this.description = description;
-        this.pageCount = pageCount;
-        this.image = image;
+        setTitle(title);
+        setSubtitle(subtitle);
+        setAuthors(authors);
+        setPublishers(publishers);
+        setPublish_date(publish_date);
+        setDescription(description);
+        setNumber_of_pages(number_of_pages);
+        setUrl(url);
     }
 
-    // get and set methods
-    public int getLocalID() { return localID; }
 
-    public void setLocalID(int localID) { this.localID = localID; }
-
+    @NonNull
     public String getTitle() {
         return title;
     }
 
-    public void setTitle(String title) {
+    public void setTitle(@NonNull String title) {
         this.title = title;
     }
 
@@ -81,20 +74,28 @@ public class Book implements Serializable
         this.authors = authors;
     }
 
-    public String getEditor() {
-        return editor;
+    public String getPublishers() {
+        return publishers;
     }
 
-    public void setEditor(String publisher) {
-        this.editor = publisher;
+    public void setPublishers(String publishers) {
+        this.publishers = publishers;
     }
 
-    public int getPublishedDate() {
-        return publishedDate;
+    public int getPublish_date() {
+        return publish_date;
     }
 
-    public void setPublishedDate(int publishedDate) {
-        this.publishedDate = publishedDate;
+    public void setPublish_date(int publish_date) {
+        this.publish_date = publish_date;
+    }
+
+    public int getNumber_of_pages() {
+        return number_of_pages;
+    }
+
+    public void setNumber_of_pages(int number_of_pages) {
+        this.number_of_pages = number_of_pages;
     }
 
     public String getDescription() {
@@ -105,36 +106,11 @@ public class Book implements Serializable
         this.description = description;
     }
 
-    public int getPageCount() {
-        return pageCount;
+    public String getUrl() {
+        return url;
     }
 
-    public void setPageCount(int pageCount) {
-        this.pageCount = pageCount;
+    public void setUrl(String url) {
+        this.url = url;
     }
-
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getPreviewLink() {
-        return previewLink;
-    }
-
-    public void setPreviewLink(String previewLink) {
-        this.previewLink = previewLink;
-    }
-
-    public String getInfoLink() {
-        return infoLink;
-    }
-
-    public void setInfoLink(String infoLink) {
-        this.infoLink = infoLink;
-    }
-
 }

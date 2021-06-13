@@ -11,90 +11,34 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:gravity="start"
-        android:orientation="vertical"        >
+        android:orientation="vertical"
+        android:gravity="center_horizontal">
+
         <!-- Go back button -->
         <androidx.appcompat.widget.AppCompatImageButton
             android:id="@+id/btn_sign_in_back"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:contentDescription="@string/nav_back"
-            android:src="@drawable/ic_arrow_back_24" />
+            android:src="@drawable/ic_arrow_back_24"
+            android:layout_gravity="start"/>
 
         <!-- Page name -->
         <TextView
             style="@style/TextSmallTitle"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/big_margin"
             android:layout_marginBottom="@dimen/small_margin"
-            android:text="@string/sign_in_message" />
+            android:text="@string/choose_sign_in_method_message" />
 
-        <!-- Pseudo field -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_pseudo"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/field_pseudo"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Email field -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_mail"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/field_mail"
-                android:inputType="text" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Password -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/field_password"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Confirmed password -->
-        <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/text_input_sign_in_confirm_password"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:errorEnabled="true">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:hint="@string/field_confirm_password"
-                android:inputType="textPassword" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <!-- Submit button -->
-        <Button
-            android:id="@+id/button_sign_in_submit"
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/button_sign_in_method_google"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_gravity="center_horizontal"
-            android:layout_margin="@dimen/big_margin"
-            android:padding="@dimen/big_margin"
-            android:text="@string/submit" />
+            android:layout_marginTop="@dimen/big_margin"
+            android:layout_marginBottom="@dimen/small_margin"/>
+
     </LinearLayout>
 
 

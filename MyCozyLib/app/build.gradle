@@ -46,14 +46,16 @@ dependencies {
 
     implementation 'androidx.recyclerview:recyclerview:1.2.0'
 
-    implementation 'com.android.volley:volley:1.2.0'
-    implementation 'com.squareup.picasso:picasso:2.71828'
-
     // online database with Firebase
+    // authentication
+    implementation "com.google.firebase:firebase-core:17.2.0"
+    implementation "com.google.firebase:firebase-auth:21.0.0"
+    implementation "com.google.firebase:firebase-firestore:21.1.1"
+    implementation "com.google.android.gms:play-services-auth:17.0.0"
+    implementation 'androidx.lifecycle:lifecycle-extensions:2.2.0-beta01'
     //implementation platform('com.google.firebase:firebase-bom:27.1.0')
-    //implementation 'com.google.firebase:firebase-auth:21.0.0'
     //implementation 'com.facebook.android:facebook-android-sdk:4.0'
-    implementation 'com.firebaseui:firebase-ui-auth:6.4.0'
+    //implementation 'com.firebaseui:firebase-ui-auth:6.4.0'
 
     // local database with Room
     def room_version = "2.3.0"

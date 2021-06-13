@@ -54,19 +54,19 @@ public class SignInActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         // initialize fields
-        textInputPseudo = findViewById(R.id.text_input_sign_in_pseudo);
+        /*textInputPseudo = findViewById(R.id.text_input_sign_in_pseudo);
         textInputEmail = findViewById(R.id.text_input_sign_in_mail);
         textInputPassword = findViewById(R.id.text_input_sign_in_password);
-        textInputConfirmPassword = findViewById(R.id.text_input_sign_in_confirm_password);
+        textInputConfirmPassword = findViewById(R.id.text_input_sign_in_confirm_password);*/
 
         // initialize progress bar
         ProgressBar progressBar = findViewById(R.id.progress_bar_sign_in);
 
         // initialize submit button
-        Button submitButton = findViewById(R.id.button_sign_in_submit);
+        /*Button submitButton = findViewById(R.id.button_sign_in_submit);
         submitButton.setOnClickListener(v -> {
             sign_in();
-        });
+        });*/
     }
 
 
@@ -155,7 +155,7 @@ public class SignInActivity extends AppCompatActivity {
      * sign_in : sign in a new user
      */
     public void sign_in() {
-        if (!validateAllFields()) {
+        /*if (!validateAllFields()) {
             Toast.makeText(this, getString(R.string.error_sign_in), Toast.LENGTH_SHORT).show();
         } else {
             progressBar.setVisibility(View.VISIBLE);
@@ -194,7 +194,7 @@ public class SignInActivity extends AppCompatActivity {
                             }
                         }
                     });
-        }
+        }*/
     }
 
     /**

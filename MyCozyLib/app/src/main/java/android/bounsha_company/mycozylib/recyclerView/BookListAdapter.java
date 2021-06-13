@@ -82,11 +82,11 @@ public class BookListAdapter extends ListAdapter<Book, BookViewHolder>
             return ( oldItem.getTitle().equals(newItem.getTitle())
                     && oldItem.getSubtitle().equals(newItem.getSubtitle())
                     && oldItem.getAuthors().equals(newItem.getAuthors())
-                    && oldItem.getEditor().equals(newItem.getEditor())
-                    && oldItem.getPublishedDate() == (newItem.getPublishedDate())
-                    && oldItem.getPageCount() == (newItem.getPageCount())
+                    && oldItem.getPublishers().equals(newItem.getPublishers())
+                    && oldItem.getPublish_date() == (newItem.getPublish_date())
+                    && oldItem.getNumber_of_pages() == (newItem.getNumber_of_pages())
                     && oldItem.getDescription().equals(newItem.getDescription())
-                    && oldItem.getImage().equals(newItem.getImage()) );
+                    && oldItem.getUrl().equals(newItem.getUrl()) );
         }
     }
 

@@ -11,7 +11,6 @@
     <string name="nav_settings">Settings</string>
     <string name="nav_disconnection">Disconnection</string>
 
-
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
@@ -27,6 +26,7 @@
     <string name="welcome_message">Welcome to </string>
     <string name="sign_in_message">Sign In :</string>
     <string name="log_in_message">Log In :</string>
+    <string name="choose_sign_in_method_message">Please select a sign in method :</string>
 
     <string name="field_mail">Email address</string>
     <string name="field_pseudo">Pseudo</string>
