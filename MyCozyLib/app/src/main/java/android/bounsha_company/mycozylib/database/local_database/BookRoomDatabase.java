@@ -62,10 +62,6 @@ abstract class BookRoomDatabase extends RoomDatabase
                 BookDAO dao = instance.bookDAO();
                 //clean the database
                 dao.deleteAll();
-
-                dao.insert(new Book("test", "", "test", "test", 2021, "",0, "" ));
-                dao.insert(new Book("test2", "", "test2", "test2", 2021, "",0, "" ));
-
             });
         }
     };

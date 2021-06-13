@@ -99,9 +99,8 @@ public class LibraryFragment extends Fragment {
                         case R.id.nav_grid_view:
                             recyclerView.setLayoutManager(new GridLayoutManager(getContext(), 2));
                             break;
-                        case R.id.nav_image_view:
-                            Fragment selectedFragment = new ImageViewFragment();
-                            getFragmentManager().beginTransaction().replace(R.id.fragment_library_view_container, selectedFragment).commit();
+                        default:
+                            recyclerView.setLayoutManager(new LinearLayoutManager(getContext(), RecyclerView.VERTICAL, false));
                             break;
                     }
                     return true;
@@ -131,9 +130,9 @@ public class LibraryFragment extends Fragment {
         }
         else if (requestCode == NEW_BOOK_ACTIVITY_REQUEST_CODE && resultCode == RESULT_CANCELED) { }
         else
-            {
-                Toast.makeText(getContext(), R.string.error_unexpected, Toast.LENGTH_LONG).show();
-            }
+        {
+            Toast.makeText(getContext(), R.string.error_unexpected, Toast.LENGTH_LONG).show();
+        }
     }
 
 

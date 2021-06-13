@@ -4,13 +4,11 @@
     <string name="app_name">MyCozyLib</string>
     <string name="nav_library">My library</string>
     <string name="nav_wish_list">Wish List</string>
-    <string name="nav_recommendations">Recommendations</string>
-    <string name="nav_title_social">Social</string>
-    <string name="nav_friends">Friends</string>
-    <string name="nav_posts">Posts</string>
-    <string name="nav_settings">Settings</string>
     <string name="nav_research">Search for a book</string>
+    <string name="nav_title_parameter">Parameters</string>
+    <string name="nav_settings">Settings</string>
     <string name="user_name">User name</string>
+    <string name="nav_disconnection">Disconnection</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
@@ -41,7 +39,7 @@
     <string name="error_sign_in">Please fill this field</string>
     <string name="error_sign_in_mail_already_exist">This Email address already exists, please enter another one</string>
     <string name="error_sign_in_mail_wrong_format">Please enter a valid Email address</string>
-    <string name="error_sign_in_password_too_weak">Please fill this field</string>
+    <string name="error_sign_in_password_too_weak">This password is too weak. Please choose another one with at least 8 characters with 1 uppercase and 1 digit </string>
     <string name="error_sign_in_confirm_password_do_not_match">The confirmed password doesn\'t match</string>
 
     <string name="sign_in_success">User successfully sign in</string>

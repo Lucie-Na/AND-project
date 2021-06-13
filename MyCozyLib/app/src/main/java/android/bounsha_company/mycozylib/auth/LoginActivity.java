@@ -1,6 +1,5 @@
 package android.bounsha_company.mycozylib.auth;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.bounsha_company.mycozylib.MainActivity;
@@ -13,21 +12,14 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.TextView;
 
-import com.firebase.ui.auth.data.model.User;
 import com.google.android.material.textfield.TextInputLayout;
-import com.google.firebase.database.DataSnapshot;
-import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.ValueEventListener;
 
 public class LoginActivity extends AppCompatActivity
 {
-
-
     private TextInputLayout textInputEmail;
     private TextInputLayout textInputPassword;
     FirebaseDatabase database;
@@ -66,7 +58,7 @@ public class LoginActivity extends AppCompatActivity
         spans.setSpan(clickSpan, 0, spans.length(), Spannable.SPAN_EXCLUSIVE_EXCLUSIVE);
 
         // initialize the submit button
-        Button submitButton = findViewById(R.id.button_sign_in_submit);
+        Button submitButton = findViewById(R.id.button_log_in_submit);
         submitButton.setOnClickListener( v ->
                 {
                     logIn();
@@ -76,7 +68,7 @@ public class LoginActivity extends AppCompatActivity
 
     private void logIn()
     {
-        users.addListenerForSingleValueEvent(new ValueEventListener()
+        /*users.addListenerForSingleValueEvent(new ValueEventListener()
         {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot)
@@ -95,7 +87,7 @@ public class LoginActivity extends AppCompatActivity
                     else
                     {
                         textInputPassword.setError(getString(R.string.error_log_in_password_do_not_match));
-                    }*/
+                    }
                 }
                 else
 
@@ -109,7 +101,7 @@ public class LoginActivity extends AppCompatActivity
             {
 
             }
-        });
+        });*/
     }
 
     /*

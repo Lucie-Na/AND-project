@@ -14,6 +14,7 @@ import android.os.Bundle;
 import android.util.Patterns;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
@@ -66,6 +67,17 @@ public class SignInActivity extends AppCompatActivity {
 
         // initialize progress bar
         ProgressBar progressBar = findViewById(R.id.progress_bar_sign_in);
+
+        // initialize the button to go back to the log in page
+        ImageButton backButton = findViewById(R.id.btn_sign_in_back);
+        backButton.setOnClickListener( view ->
+                {
+                    Intent replyIntent = new Intent();
+                    setResult(RESULT_CANCELED, replyIntent);
+                    finish();
+                }
+        );
+
 
         // initialize submit button
         Button submitButton = findViewById(R.id.button_sign_in_submit);
@@ -134,7 +146,8 @@ public class SignInActivity extends AppCompatActivity {
         defaultVerificationPassed &= validateDefault(textInputConfirmPassword);
 
         // verify if the input matches with required security
-        if (defaultVerificationPassed && !PATTERN_PASSWORD.matcher(passwordInput).matches()) {
+        if (defaultVerificationPassed && !PATTERN_PASSWORD.matcher(passwordInput).matches())
+        {
             textInputPassword.setError(getString(R.string.error_sign_in_password_too_weak));
             return false;
         }
@@ -158,46 +171,48 @@ public class SignInActivity extends AppCompatActivity {
     /**
      * sign_in : sign in a new user
      */
-    public void sign_in() {
-        if (!validateAllFields()) {
-            Toast.makeText(this, getString(R.string.error_sign_in), Toast.LENGTH_SHORT).show();
-        } else {
-            progressBar.setVisibility(View.VISIBLE);
-            //create a new user
-            mAuth.createUserWithEmailAndPassword(textInputEmail.getEditText().getText().toString().trim(), textInputPassword.getEditText().getText().toString().trim())
-                    .addOnCompleteListener(new OnCompleteListener<AuthResult>()
-                    {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task)
+    public void sign_in()
+    {
+        if (validateAllFields())
+        {
+            Toast.makeText(SignInActivity.this, R.string.sign_in_success, Toast.LENGTH_SHORT).show();
+
+                /*progressBar.setVisibility(View.VISIBLE);
+                //create a new user
+                mAuth.createUserWithEmailAndPassword(textInputEmail.getEditText().getText().toString().trim(), textInputPassword.getEditText().getText().toString().trim())
+                        .addOnCompleteListener(new OnCompleteListener<AuthResult>()
                         {
-                            //if the sign in is a success
-                            if (task.isSuccessful())
+                            @Override
+                            public void onComplete(@NonNull Task<AuthResult> task)
                             {
-                                User user = new User(textInputPseudo.getEditText().getText().toString().trim(), textInputEmail.getEditText().getText().toString().trim());
-                                FirebaseDatabase.getInstance().getReference("Users")
-                                        .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
-                                        .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>()
+                                //if the sign in is a success
+                                if (task.isSuccessful())
                                 {
-                                    @Override
-                                    public void onComplete(@NonNull Task<Void> task) {
-                                        if (task.isSuccessful()) {
-                                            Toast.makeText(SignInActivity.this, R.string.sign_in_success, Toast.LENGTH_SHORT).show();
-                                            progressBar.setVisibility(View.GONE);
-                                            // redirect to log in page
-                                            goToLogInActivity();
+                                    User user = new User(textInputPseudo.getEditText().getText().toString().trim(), textInputEmail.getEditText().getText().toString().trim());
+                                    FirebaseDatabase.getInstance().getReference("Users")
+                                            .child(FirebaseAuth.getInstance().getCurrentUser().getUid())
+                                            .setValue(user).addOnCompleteListener(new OnCompleteListener<Void>()
+                                    {
+                                        @Override
+                                        public void onComplete(@NonNull Task<Void> task) {
+                                            if (task.isSuccessful()) {
+                                                Toast.makeText(SignInActivity.this, R.string.sign_in_success, Toast.LENGTH_SHORT).show();
+                                                progressBar.setVisibility(View.GONE);
+                                                // redirect to log in page
+                                                goToLogInActivity();
+                                            }
+                                            else {
+                                                Toast.makeText(SignInActivity.this, "Failed to register.", Toast.LENGTH_SHORT).show();
+                                                progressBar.setVisibility(View.GONE);
+                                            }
                                         }
-                                        else {
-                                            Toast.makeText(SignInActivity.this, "Failed to register.", Toast.LENGTH_SHORT).show();
-                                            progressBar.setVisibility(View.GONE);
-                                        }
-                                    }
-                                });
-                            } else {
-                                Toast.makeText(SignInActivity.this, "Failed to register.", Toast.LENGTH_SHORT).show();
-                                progressBar.setVisibility(View.GONE);
+                                    });
+                                } else {
+                                    Toast.makeText(SignInActivity.this, "Failed to register.", Toast.LENGTH_SHORT).show();
+                                    progressBar.setVisibility(View.GONE);
+                                }
                             }
-                        }
-                    });
+                    });*/
         }
     }
         /*

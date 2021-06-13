@@ -34,10 +34,6 @@ public class Book implements Serializable
     @ColumnInfo(name = "image")
     private String image;
 
-
-    private String previewLink;
-    private String infoLink;
-
     // constructor
     public Book(@NonNull String title, String subtitle, String authors, String editor,
                 int publishedDate, String description, int pageCount, String image)
@@ -119,22 +115,6 @@ public class Book implements Serializable
 
     public void setImage(String image) {
         this.image = image;
-    }
-
-    public String getPreviewLink() {
-        return previewLink;
-    }
-
-    public void setPreviewLink(String previewLink) {
-        this.previewLink = previewLink;
-    }
-
-    public String getInfoLink() {
-        return infoLink;
-    }
-
-    public void setInfoLink(String infoLink) {
-        this.infoLink = infoLink;
     }
 
 }

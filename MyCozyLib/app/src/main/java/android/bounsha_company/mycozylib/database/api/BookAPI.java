@@ -12,16 +12,12 @@ import retrofit2.http.Query;
 public interface BookAPI
 {
 
-    /*
-    @GET, @POST, @PUT, @DELETE and @HEAD for request type on methods
-    @Path and @Query for URL manipulation on parameters*/
-
     /**
      * getBook : research for a specific book in the API
      * @param name : String : book title to research
      * @return Call<BookResponse> : list of corresponding books
      */
-    @GET("books/v1/volumes?")
+    @GET("books/v1/volumes?q=")
     Call<BookResponse> getBookByTitle(@Query("name") String name);
 
 }

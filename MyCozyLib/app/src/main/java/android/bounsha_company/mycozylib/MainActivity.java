@@ -8,6 +8,7 @@ import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.fragment.app.Fragment;
 
+import android.bounsha_company.mycozylib.auth.DisconnectionFragment;
 import android.bounsha_company.mycozylib.library.LibraryFragment;
 import android.os.Bundle;
 import android.view.Menu;
@@ -71,28 +72,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 selectedFragment = new WishFragment();
                 toolbar.setTitle(R.string.nav_wish_list);
                 break;
-            case R.id.nav_recommendations:
-                selectedFragment = new RecommendationFragment();
-                toolbar.setTitle(R.string.nav_recommendations);
-                break;
             case R.id.nav_research:
                 selectedFragment = new ResearchFragment();
                 toolbar.setTitle(R.string.nav_research);
-                break;
-            case R.id.nav_friends:
-                selectedFragment = new FriendFragment();
-                toolbar.setTitle(R.string.nav_friends);
-                break;
-            case R.id.nav_posts:
-                selectedFragment = new PostFragment();
-                toolbar.setTitle(R.string.nav_posts);
                 break;
             case R.id.nav_settings:
                 selectedFragment = new SettingFragment();
                 toolbar.setTitle(R.string.nav_settings);
                 break;
+            case R.id.nav_disconnection:
+                selectedFragment = new DisconnectionFragment();
+                toolbar.setTitle(R.string.nav_disconnection);
+                break;
             default:
-                toolbar.setTitle(R.string.app_name);
+                selectedFragment = new LibraryFragment();
+                toolbar.setTitle(R.string.nav_library);
                 break;
         }
         getSupportFragmentManager().beginTransaction().replace(R.id.fragment_main_container, selectedFragment).commit();

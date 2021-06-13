@@ -20,14 +20,14 @@ import retrofit2.internal.EverythingIsNonNull;
 public class BookRepositoryAPI
 {
     private static BookRepositoryAPI instance;
-    private final MutableLiveData<List<Book>> searchedBook;
+    private final MutableLiveData<List<Book>> searchedBooks;
 
     /**
      * BookRepositoryAPI : initialize the new instance of this class
      */
     private BookRepositoryAPI()
     {
-        searchedBook = new MutableLiveData<List<android.bounsha_company.mycozylib.models.Book>>();
+        searchedBooks = new MutableLiveData<List<Book>>();
     }
 
     /**
@@ -36,7 +36,8 @@ public class BookRepositoryAPI
      */
     public static synchronized BookRepositoryAPI getInstance()
     {
-        if (instance == null) {
+        if (instance == null)
+        {
             instance = new BookRepositoryAPI();
         }
         return instance;
@@ -48,7 +49,7 @@ public class BookRepositoryAPI
      */
     public LiveData<List<Book>> getSearchedBook()
     {
-        return searchedBook;
+        return searchedBooks;
     }
 
     /**
@@ -69,7 +70,7 @@ public class BookRepositoryAPI
                 if (response.isSuccessful())
                 {
                     Log.e("Debug", "Retrofit : request success");
-                    response.body().getListBook();
+                    searchedBooks.setValue(response.body().getListBook());
                 }
             }
             // if the request failed

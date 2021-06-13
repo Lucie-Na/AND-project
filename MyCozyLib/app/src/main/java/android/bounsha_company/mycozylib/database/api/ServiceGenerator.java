@@ -14,7 +14,7 @@ public class ServiceGenerator
 
     private static BookAPI bookAPI;
 
-    public static BookAPI getBookAPI()
+    protected static BookAPI getBookAPI()
     {
         if (bookAPI == null)
         {
